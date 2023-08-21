@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -21,7 +22,7 @@ const Footer = () => {
             alt = "slek image"
             width = {90}
             height = {61}
-            className="absolute"
+            className="absolute top-6"
           />
         </a>
 
@@ -31,22 +32,22 @@ const Footer = () => {
           alt = "slek logo"
           width = {188}
           height = {43}
-          className="absolute left-10 top-2"
+          className="absolute left-10 top-8"
         />
         </a>
       </div>
 
       <div className="relative">
         <div className="text-center m-2">
-          <a href="https://www.instagram.com/slekmed/?hl=zh-tw" target="_blank" className="bg-gray-100 m-2 p-2 text-black">
-            IG 官方帳號
-          </a>
+          <Link href="https://www.instagram.com/slekmed/?hl=zh-tw">
+            <button className="bg-gray-100 m-2 p-2 text-black" >IG 官方帳號</button>
+          </Link>
         </div>
         
         <div className="text-center m-2">
-          <a href="https://www.facebook.com/slekmed" target="_blank" className="bg-gray-100 m-2 p-2 text-black">
-            FB 粉絲專頁
-          </a>
+          <Link href="https://www.facebook.com/slekmed">
+            <button className="bg-gray-100 m-2 p-2 text-black" >FB 粉絲專頁</button>
+          </Link>
         </div>
       </div>
     </div>

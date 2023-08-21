@@ -10,14 +10,14 @@ const Header = () => {
           alt = "slek image"
           width = {65}
           height = {43}
-          className="absolute top-3 left-12"
+          className="absolute mt-3 ml-12"
         />
         <Image 
           src = "/slek_logo.webp"
           alt = "slek logo"
           width = {141}
           height = {32}
-          className="absolute top-5 left-20"
+          className="absolute mt-5 ml-20"
         />
       </div>
     </>
