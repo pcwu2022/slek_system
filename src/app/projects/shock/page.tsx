@@ -11,7 +11,11 @@ const data: PageData = {
 const shock = () => {
   return (
     <div>
-      Shock
+      <iframe 
+        src="http://teamb.slekmed.org/" 
+        frameBorder="0"
+        className='w-screen min-h-screen no-scrollbar -md-4'
+      ></iframe>
     </div>
   )
 }

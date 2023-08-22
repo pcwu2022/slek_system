@@ -40,13 +40,13 @@ const Footer = () => {
       <div className="relative">
         <div className="text-center m-2">
           <Link href="https://www.instagram.com/slekmed/?hl=zh-tw">
-            <button className="bg-gray-100 m-2 p-2 text-black" >IG 官方帳號</button>
+            <button className="bg-gray-100 m-2 p-2 pl-4 pr-6 text-bold text-black hover:bg-gray-200" >IG 官方帳號</button>
           </Link>
         </div>
         
         <div className="text-center m-2">
           <Link href="https://www.facebook.com/slekmed">
-            <button className="bg-gray-100 m-2 p-2 text-black" >FB 粉絲專頁</button>
+            <button className="bg-gray-100 m-2 p-2 pl-4 pr-6 text-bold text-black hover:bg-gray-200" >FB 粉絲專頁</button>
           </Link>
         </div>
       </div>

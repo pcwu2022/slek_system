@@ -6,13 +6,13 @@ const Card = (props: {pageData: PageData}) => {
   return (
   <>
     <div
-      className="inline-block w-80 m-10 rounded-lg bg-neutral-700">
+      className="inline-block w-40 sm:w-80 m-2 sm:m-10 rounded-lg bg-neutral-700">
       <img
-          className="rounded-t-lg object-cover w-80 h-48"
+          className="rounded-t-lg object-cover w-80 h-28 sm:h-48"
           src={props.pageData?.imageLink || "https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"}
           alt="" 
       />
-      <div className="p-6">
+      <div className="p-2 sm:p-6">
         <div
             className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
             {props.pageData.title}
