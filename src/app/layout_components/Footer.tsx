@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
   <>
-    <div className="bg-blue-950 w-screen h-48 columns-3 p-4 pt-5">
+    <div className="bg-blue-950 w-full h-48 columns-3 p-4 pt-5">
       <div className="text-center h-36">
         <p className="text-sm my-4 text-white">| 完全人才股份有限公司 |</p>
         <p className="text-sm my-4 text-white">統編：83594582</p>

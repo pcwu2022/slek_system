@@ -11,7 +11,7 @@
   --light1: 204, 238, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-rgb: 32, 33, 36;
@@ -20,7 +20,7 @@
     --light2: 147, 209, 230;
     --light1: 204, 238, 255;
   }
-}
+} */
 
 @layer utilities {
   @variants responsive {
@@ -41,4 +41,60 @@
 body {
   background-color: var(--background-rgb);
   color: var(--foreground-rgb);
+}
+
+/* var don't work */
+
+@media (prefers-color-scheme: light) {
+  .bg-dark1 {
+    background-color: rgb(8, 28, 65);
+  }
+  .bg-dark2 {
+    background-color: rgb(86, 111, 184);
+  }
+  .bg-light1 {
+    background-color: rgb(255, 255, 255);
+  }
+  .bg-light2 {
+    background-color: rgb(204, 238, 255);
+  }
+  .text-dark1 {
+    color: rgb(8, 28, 65);
+  }
+  .text-dark2 {
+    color: rgb(86, 111, 184);
+  }
+  .text-light1 {
+    color: rgb(204, 238, 255);
+  }
+  .text-light2 {
+    color: rgb(147, 209, 230);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bg-light1 {
+    background-color: rgb(8, 28, 65);
+  }
+  .bg-light2 {
+    background-color: rgb(86, 111, 184);
+  }
+  .bg-light1 {
+    background-color: rgb(255, 255, 255);
+  }
+  .bg-dark2 {
+    background-color: rgb(204, 238, 255);
+  }
+  .text-light1 {
+    color: rgb(8, 28, 65);
+  }
+  .text-light2 {
+    color: rgb(86, 111, 184);
+  }
+  .text-dark1 {
+    color: rgb(204, 238, 255);
+  }
+  .text-dark2 {
+    color: rgb(147, 209, 230);
+  }
 }

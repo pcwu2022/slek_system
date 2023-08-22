@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <>
-      <div className="bg-blue-950 w-screen h-20 relative">
+      <div className="bg-blue-950 w-full h-20 relative">
         <Link href="../../">
           <Image 
             src = "/slek_image.webp"
