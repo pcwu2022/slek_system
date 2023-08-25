@@ -1,15 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { PageData } from '../types/types';
+import Image from 'next/image';
 
 const Card = (props: {pageData: PageData}) => {
   return (
   <>
     <div
       className="inline-block w-40 sm:w-80 m-2 sm:m-10 rounded-lg bg-neutral-700">
-      <img
+      <Image
           className="rounded-t-lg object-cover w-80 h-28 sm:h-48"
-          src={props.pageData?.imageLink || "https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"}
+          src={props.pageData?.imageLink || "https://tecdn.b-cdn.net/Image/new/standard/nature/184.jpg"}
           alt="" 
       />
       <div className="p-2 sm:p-6">
