@@ -7,7 +7,7 @@ import { data as hyponatremiaData } from '../hyponatremia/page';
 import { data as hypoxiaData } from '../hypoxia/page';
 import { data as shockData } from '../shock/page';
 
-const pageData: Array<PageData> = [hyponatremiaData, hypoxiaData, shockData];
+const pageData: Array<PageData> = [hypoxiaData, shockData, hyponatremiaData];
 
 const home = () => {
   return (
