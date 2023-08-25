@@ -7,7 +7,7 @@ import { data as hyponatremiaData } from '../hyponatremia/page';
 import { data as hypoxiaData } from '../hypoxia/page';
 import { data as shockData } from '../shock/page';
 
-const pageData: Array<PageData> = [hypoxiaData, shockData, hyponatremiaData];
+const pageData: Array<PageData> = [hyponatremiaData, hypoxiaData, shockData];
 
 const home = () => {
   return (
@@ -18,7 +18,6 @@ const home = () => {
               pageData.map((element: PageData) => (
                 <Card 
                   pageData={element}
-                  key={element.name}
                 />
               ))
             }
