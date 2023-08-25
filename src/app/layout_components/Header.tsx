@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ProfileImage from './ProfileImage';
+import ProfileDropdown from './ProfileDropdown';
 
 const Header = () => {
   return (
@@ -24,6 +25,7 @@ const Header = () => {
             className="absolute mt-5 ml-20"
           />
         </Link>
+        <ProfileDropdown></ProfileDropdown>
         <ProfileImage imageLink='https://cdn-icons-png.flaticon.com/512/149/149071.png'/>
       </div>
     </>

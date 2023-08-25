@@ -18,6 +18,7 @@ const home = () => {
               pageData.map((element: PageData) => (
                 <Card 
                   pageData={element}
+                  key={element.name}
                 />
               ))
             }
