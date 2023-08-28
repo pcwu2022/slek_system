@@ -18,6 +18,20 @@ enum State {
     Fail = "治療失敗"
 };
 
+// Inital Variables Throughout the Program
+enum Main {
+    CC = "主訴",
+    GCS = "GCS",
+    Respiration = "呼吸",
+    Temperature = "體溫",
+    Heartbeat = "心跳",
+    Pressure = "血壓",
+    IndexH = "指數上限",
+    IndexL = "指數下限",
+    Answer = "解答",
+    Detailed = "詳解"
+};
+
 // Variables for Dignosis Choices
 enum Diagnosis {
     CHF = "Chronic Heart Failure",
