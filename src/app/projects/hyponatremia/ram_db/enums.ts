@@ -58,7 +58,7 @@ enum MedHistory {
     Family = "家族病史",
     Travel = "旅遊史",
     Allergy = "過敏史",
-    Pharmacy = "藥物史",
+    Medications = "藥物史",
     LQQOPERA = "LQQOPERA"
 };
 
@@ -95,7 +95,9 @@ enum Blood {
     BUN = "BUN",
     Creatinine = "Creatinine",
     EGFR = "eGFR",
-    TSH = "TSH, T3, T4",
+    T3 = "T3",
+    T4 = "T4",
+    GPT = "GPT",
     ACTH = "ACTH",
     GOT = "GOT",
     Protein = "血蛋白",
@@ -120,3 +122,14 @@ enum Urea {
     Gravity = "Urine Specific Gravity"
 };
 
+export {
+    State,
+    Main,
+    Diagnosis,
+    Therapy,
+    MedHistory,
+    PE,
+    Examination,
+    Blood,
+    Urea
+};
