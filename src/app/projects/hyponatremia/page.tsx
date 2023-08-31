@@ -25,4 +25,3 @@ const hyponatremia = () => {
 }
 
 export default hyponatremia;
-export { data };
