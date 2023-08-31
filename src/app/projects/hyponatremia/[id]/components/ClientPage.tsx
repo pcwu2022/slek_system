@@ -8,6 +8,7 @@ import * as enums from '../../ram_db/enums';
 
 // components
 import ControlFlow from './ControlFlow';
+import Entry from './Entry';
 import CC from './CC';
 import MedHistory from './MedHistory';
 import PE from './PE';
@@ -21,8 +22,8 @@ const ClientPage = ( props: { db: DBJson } ) => {
   const params = useParams();
   const routerId = params.id as keyof typeof props.db;
   const [sheet, setSheet] = useState<SheetJson | null>(null);
-  const [state, setState] = useState<enums.State>(enums.State.Entery); // game flow control
-  const [prevState, setPrevState] = useState<Array<enums.State>>([enums.State.Entery]); // backtracking
+  const [state, setState] = useState<enums.State>(enums.State.Entry); // game flow control
+  const [prevState, setPrevState] = useState<Array<enums.State>>([enums.State.Entry]); // backtracking
 
   // on page load
   useEffect(() => {
@@ -38,7 +39,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
     <>
       <div className='gameContainer w-full h-screen bg-blue-100'>
         {
-          // (state === enums.State.Entery)?<></>:
+          (state === enums.State.Entry)?<Entry />:
           
         }
         <ControlFlow 

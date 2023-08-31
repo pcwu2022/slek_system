@@ -2,7 +2,7 @@
 
 // Control Flow of the Program
 enum State {
-    Entery = "病人入院",
+    Entry = "病人入院",
     CC = "主訴",
     MedHistory = "病史",
     PE = "理學檢查",

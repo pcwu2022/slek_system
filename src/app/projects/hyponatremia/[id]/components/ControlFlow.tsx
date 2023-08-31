@@ -22,7 +22,7 @@ const ControlFlow = (props: {
     props.setPrevState([...props.prevState, props.state]);
     // forward control flow
     switch (props.state) {
-      case enums.State.Entery: props.setState(enums.State.CC); break;
+      case enums.State.Entry: props.setState(enums.State.CC); break;
       case enums.State.CC: props.setState(enums.State.MedHistory); break;
       case enums.State.MedHistory: props.setState(enums.State.Diagnosis1); break;
       case enums.State.Diagnosis1: props.setState(enums.State.Examination); break;
@@ -51,7 +51,7 @@ const ControlFlow = (props: {
       case enums.State.ExaminationN: props.setState(enums.State.DiagnosisN); break;
       default: {
         console.log("Default");
-        props.setState(enums.State.Entery);
+        props.setState(enums.State.Entry);
         break;
       }
     }
@@ -60,7 +60,7 @@ const ControlFlow = (props: {
   return (
     <div className='control-flow'>
       {props.state}
-      {(props.state === enums.State.Entery)?(<></>):(
+      {(props.state === enums.State.Entry)?(<></>):(
         // create goBack button if not on the entry state
         <div className='back-button underline hover:cursor-pointer' onClick={goBack}>{"<"} back</div>
       )}
