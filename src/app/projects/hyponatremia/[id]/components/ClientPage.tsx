@@ -37,7 +37,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
 
   return (
     <div className='w-full relative bg-blue-100 p-8'>
-      <div className='gameContainer h-96'>
+      <div className='gameContainer min-h-screen -mb-36 pb-48'>
         {
           // switch display in the page
           (sheet === null) ? <></> : // check if null
