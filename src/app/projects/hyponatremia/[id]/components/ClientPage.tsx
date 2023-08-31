@@ -8,6 +8,14 @@ import * as enums from '../../ram_db/enums';
 
 // components
 import ControlFlow from './ControlFlow';
+import CC from './CC';
+import MedHistory from './MedHistory';
+import PE from './PE';
+import Diagnosis from './Diagnosis';
+import Examination from './Examination';
+import Therapy from './Therapy';
+import Success from './Success';
+import Fail from './Fail';
 
 const ClientPage = ( props: { db: DBJson } ) => {
   const params = useParams();
