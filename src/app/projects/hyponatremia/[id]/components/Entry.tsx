@@ -6,6 +6,7 @@ const Entry = (props: {data: SheetJson}) => {
   return (
     <div>
       <div>Welcome to the game!</div>
+      <div>Some photo of hospital and a patient sent inside</div>
     </div>
   )
 }

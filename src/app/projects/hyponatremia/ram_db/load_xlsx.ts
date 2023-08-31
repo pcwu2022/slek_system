@@ -7,7 +7,9 @@ import {
     PE,
     Examination,
     Blood,
-    Urea
+    Urine,
+    Radiology,
+    ABG
 } from "./enums";
 
 import {
