@@ -29,13 +29,16 @@ const ClientPage = ( props: { db: DBJson } ) => {
   return (
     <>
       <div className='gameContainer w-full h-screen bg-blue-100'>
+        {
+          // (state === enums.State.Entery)?<></>:
+          
+        }
         <ControlFlow 
           state={state} 
           setState={setState} 
           prevState={prevState}
           setPrevState={setPrevState}
         />
-        
       </div>
     </>
   )
