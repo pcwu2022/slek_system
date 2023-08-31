@@ -5,7 +5,6 @@ import * as enums from '../../ram_db/enums';
 // components
 import ImageDisplay from './ImageDisplay';
 import { StyledTitle, StyledBox } from './StyledComponents';
-import hyponatremia from '../../page';
 
 const Entry = (props: {data: SheetJson}) => {
   return (

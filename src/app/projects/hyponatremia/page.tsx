@@ -3,6 +3,9 @@ import type { PageData } from '../types/types';
 import loadXlsx from './ram_db/load_xlsx';
 import { DBJson } from './ram_db/types';
 
+import { StyledBox, StyledTitle } from './[id]/components/StyledComponents';
+import Link from 'next/link';
+
 const data: PageData = {
   title: "Hyponatremia",
   name: "hyponatremia",
@@ -14,12 +17,19 @@ const db: DBJson = loadXlsx();
 
 const hyponatremia = () => {
   return (
-    <div>
-      <pre>
+    <div className='p-8'>
+      <div className='text-2xl'>Welcome to Hyponatremia Simulator. <br /> Choose a Level to play:</div>
+      <div>
         {
-          JSON.stringify(db, null, 4)
+          Object.keys(db).map((sheetName) => (<>
+            <Link href={"/projects/hyponatremia/" + sheetName}>
+              <StyledTitle>
+                {sheetName}
+              </StyledTitle>
+            </Link>
+          </>))
         }
-      </pre>
+      </div>
     </div>
   )
 }
