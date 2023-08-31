@@ -9,9 +9,13 @@ const MedHistory = (props: {data: SheetJson}) => {
       <div>Photo of a patient</div>
       <div>病人背景資料</div>
       <div className='med-history'>
-        <ToggleList title="title">
-          sdfhgjkl
-        </ToggleList>
+        {
+          Object.keys(props.data.MedHistory).map((key) => (
+            <ToggleList title={key} key={key}>
+              {props.data.MedHistory[key]}
+            </ToggleList>
+          ))
+        }
       </div>
     </div>
   )
