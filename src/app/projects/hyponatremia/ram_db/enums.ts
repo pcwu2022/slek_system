@@ -75,10 +75,8 @@ enum PE {
 enum Examination {
     Blood = "Blood Test",
     Urea = "Urea Test",
-    Chest = "Chest Xray and CT",
-    Abdominal = "腹部超音波",
-    Thyroid = "甲狀腺超音波",
-    Head = "CT Scan of head"
+    Radiology = "Radiology",
+    ABG = "ABG"
 };
 
 // Variables for the Second Level of Examination: Blood Test
@@ -106,7 +104,7 @@ enum Blood {
 };
 
 // Variables for the Second Level of Examination: Urea Test
-enum Urea {
+enum Urine {
     Density = "比重",
     Color = "顏色",
     PH = "pH",
@@ -122,6 +120,24 @@ enum Urea {
     Gravity = "Urine Specific Gravity"
 };
 
+// Variables for the Second Level of Examination: Radiology
+enum Radiology {
+    ChestCT = "Chest Xray and CT",
+    AbdSono = "腹部超音波",
+    ThySono = "甲狀腺超音波",
+    HeadCT = "CT Scan of head"
+};
+
+// Variables for the Second Level of Examination: ABG
+enum ABG {
+    PH = "pH",
+    PCO2 = "CO2 Partial Pressure",
+    PO2 = "Oxygen Partial Pressure",
+    SO2 = "Oxygen Saturation",
+    HCO3 = "Bicarbonate",
+    BE = "Base Excess"
+}
+
 export {
     State,
     Main,
@@ -131,5 +147,7 @@ export {
     PE,
     Examination,
     Blood,
-    Urea
+    Urine,
+    Radiology,
+    ABG
 };
