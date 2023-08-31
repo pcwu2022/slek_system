@@ -36,8 +36,8 @@ const ClientPage = ( props: { db: DBJson } ) => {
   }, []);
 
   return (
-    <>
-      <div className='gameContainer w-full h-screen bg-blue-100'>
+    <div className='w-full relative bg-blue-100 p-8'>
+      <div className='gameContainer h-96'>
         {
           // switch display in the page
           (sheet === null) ? <></> : // check if null
@@ -56,14 +56,14 @@ const ClientPage = ( props: { db: DBJson } ) => {
           (state === enums.State.DiagnosisN) ? <Diagnosis data={sheet} /> : 
           (state === enums.State.Fail) ? <Fail data={sheet} /> : <></>
         }
-        <ControlFlow 
-          state={state} 
-          setState={setState} 
-          prevState={prevState}
-          setPrevState={setPrevState}
-        />
       </div>
-    </>
+      <ControlFlow 
+        state={state} 
+        setState={setState} 
+        prevState={prevState}
+        setPrevState={setPrevState}
+      />
+    </div>
   )
 };
 

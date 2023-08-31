@@ -58,15 +58,16 @@ const ControlFlow = (props: {
   }
   
   return (
-    <div className='control-flow'>
+    <div className='control-flow block relative w-full text-blue-700 font-bold'> 
       {(props.state === enums.State.Entry)?(<></>):(
         // create goBack button if not on the entry state
-        <div className='back-button underline hover:cursor-pointer' onClick={goBack}>{"<"} back</div>
+        <div className='back-button underline relative float-left hover:cursor-pointer' onClick={goBack}>{"<"} back</div>
       )}
       {(props.state === enums.State.Success || props.state === enums.State.Fail)?(<></>):(
         // create goCountinue button if not on the finish state
-        <div className='continue-button underline hover:cursor-pointer' onClick={goContinue}>continue {">"}</div>
+        <div className='continue-button underline relative float-right hover:cursor-pointer' onClick={goContinue}>continue {">"}</div>
       )}
+      <div>&nbsp;</div>
     </div>
   )
 }
