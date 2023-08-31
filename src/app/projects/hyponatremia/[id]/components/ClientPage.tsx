@@ -40,19 +40,21 @@ const ClientPage = ( props: { db: DBJson } ) => {
       <div className='gameContainer w-full h-screen bg-blue-100'>
         {
           // switch display in the page
-          (state === enums.State.Entry) ? <Entry /> :
-          (state === enums.State.CC) ? <CC /> : 
-          (state === enums.State.PE) ? <PE /> : 
-          (state === enums.State.Diagnosis1) ? <Diagnosis /> : 
-          (state === enums.State.Examination) ? <Examination /> : 
-          (state === enums.State.Diagnosis2) ? <Diagnosis /> : 
-          (state === enums.State.Therapy) ? <Therapy /> : 
-          (state === enums.State.DiagnosisF) ? <Diagnosis /> : 
-          (state === enums.State.Success) ? <Success /> : 
-          (state === enums.State.ExaminationN) ? <Examination /> : 
-          (state === enums.State.TherapyN) ? <Therapy /> : 
-          (state === enums.State.DiagnosisN) ? <Diagnosis /> : 
-          (state === enums.State.Fail) ? <Fail /> : <></>
+          (sheet === null) ? <></> : // check if null
+          (state === enums.State.Entry) ? <Entry data={sheet} /> :
+          (state === enums.State.CC) ? <CC data={sheet} /> : 
+          (state === enums.State.MedHistory) ? <MedHistory data={sheet} /> : 
+          (state === enums.State.PE) ? <PE data={sheet} /> : 
+          (state === enums.State.Diagnosis1) ? <Diagnosis data={sheet} /> : 
+          (state === enums.State.Examination) ? <Examination data={sheet} /> : 
+          (state === enums.State.Diagnosis2) ? <Diagnosis data={sheet} /> : 
+          (state === enums.State.Therapy) ? <Therapy data={sheet} /> : 
+          (state === enums.State.DiagnosisF) ? <Diagnosis data={sheet} /> : 
+          (state === enums.State.Success) ? <Success data={sheet} /> : 
+          (state === enums.State.ExaminationN) ? <Examination data={sheet} /> : 
+          (state === enums.State.TherapyN) ? <Therapy data={sheet} /> : 
+          (state === enums.State.DiagnosisN) ? <Diagnosis data={sheet} /> : 
+          (state === enums.State.Fail) ? <Fail data={sheet} /> : <></>
         }
         <ControlFlow 
           state={state} 

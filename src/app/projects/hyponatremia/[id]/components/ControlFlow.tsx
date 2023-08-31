@@ -59,7 +59,6 @@ const ControlFlow = (props: {
   
   return (
     <div className='control-flow'>
-      {props.state}
       {(props.state === enums.State.Entry)?(<></>):(
         // create goBack button if not on the entry state
         <div className='back-button underline hover:cursor-pointer' onClick={goBack}>{"<"} back</div>
