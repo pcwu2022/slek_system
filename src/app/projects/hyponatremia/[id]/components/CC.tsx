@@ -7,8 +7,8 @@ const CC = (props: {data: SheetJson}) => {
     <div>
       <div>Photo of a patient</div>
       <div>本次主訴</div>
-      <div>
-        <div>{JSON.stringify(props.data)}</div>
+      <div className='main-cc'>
+        <div>{props.data.Main.CC}</div>
       </div>
     </div>
   )
