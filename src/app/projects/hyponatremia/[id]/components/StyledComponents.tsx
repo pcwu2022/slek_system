@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 
 const StyledTitle = (props: { children: JSX.Element | string | null }) => {

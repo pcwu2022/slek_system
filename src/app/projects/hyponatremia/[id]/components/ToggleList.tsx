@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ReactComponentElement, useState } from 'react';
 
 const ToggleList = (props: {title: string, children: JSX.Element | string | null}) => {

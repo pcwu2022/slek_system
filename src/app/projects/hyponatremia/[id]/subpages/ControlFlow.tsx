@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import * as enums from '../../ram_db/enums';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { StyledTitle } from './StyledComponents';
 import Image from 'next/image';
