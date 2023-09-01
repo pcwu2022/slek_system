@@ -24,7 +24,8 @@ const ControlFlow = (props: {
     switch (props.state) {
       case enums.State.Entry: props.setState(enums.State.CC); break;
       case enums.State.CC: props.setState(enums.State.MedHistory); break;
-      case enums.State.MedHistory: props.setState(enums.State.Diagnosis1); break;
+      case enums.State.MedHistory: props.setState(enums.State.PE); break;
+      case enums.State.PE: props.setState(enums.State.Diagnosis1); break;
       case enums.State.Diagnosis1: props.setState(enums.State.Examination); break;
       case enums.State.Examination: props.setState(enums.State.Diagnosis2); break;
       case enums.State.Diagnosis2: props.setState(enums.State.Therapy); break;

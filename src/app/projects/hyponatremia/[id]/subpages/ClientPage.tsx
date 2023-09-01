@@ -24,6 +24,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
   const [sheet, setSheet] = useState<SheetJson | null>(null);
   const [state, setState] = useState<enums.State>(enums.State.Entry); // game flow control
   const [prevState, setPrevState] = useState<Array<enums.State>>([enums.State.Entry]); // backtracking
+  const [inquiryHistory, setInquiryHistory] = useState<Array<string>>([]);
 
   // on page load
   useEffect(() => {
@@ -44,7 +45,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
           (state === enums.State.Entry) ? <Entry data={sheet} /> :
           (state === enums.State.CC) ? <CC data={sheet} /> : 
           (state === enums.State.MedHistory) ? <MedHistory data={sheet} /> : 
-          (state === enums.State.PE) ? <PE data={sheet} /> : 
+          (state === enums.State.PE) ? <PE data={sheet} inquiryHistory={inquiryHistory} setInquiryHistory={setInquiryHistory}/> : 
           (state === enums.State.Diagnosis1) ? <Diagnosis data={sheet} /> : 
           (state === enums.State.Examination) ? <Examination data={sheet} /> : 
           (state === enums.State.Diagnosis2) ? <Diagnosis data={sheet} /> : 

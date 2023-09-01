@@ -64,8 +64,8 @@ enum MedHistory {
 
 // Variables for Physical Examination Items
 enum PE {
-    VS = "生命徵象及意識狀態",
-    Inspection = "望診",
+    Inquiry = "問診",
+    Inspection = "視診",
     Auscultation = "聽診",
     Percussion = "叩診",
     Palpation = "觸診"
