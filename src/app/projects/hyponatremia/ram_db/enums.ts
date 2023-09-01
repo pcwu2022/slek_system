@@ -59,7 +59,6 @@ enum MedHistory {
     Travel = "旅遊史",
     Allergy = "過敏史",
     Medications = "藥物史",
-    Medications = "藥物史",
     LQQOPERA = "LQQOPERA"
 };
 
