@@ -25,6 +25,8 @@ const __dirname = dirname(__filename);
 
 const xlsxPath = path.join(__dirname, "./db.xlsx");
 
+console.log(__filename);
+
 const transpose = (matrix: Array<Array<string>>) => {
     return matrix[0].map((col, i) => matrix.map(row => row[i]));
 }
