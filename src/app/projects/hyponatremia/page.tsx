@@ -21,13 +21,13 @@ const hyponatremia = () => {
       <div className='text-2xl'>Welcome to Hyponatremia Simulator. <br /> Choose a Level to play:</div>
       <div>
         {
-          Object.keys(db).map((sheetName) => (<>
-            <Link href={"/projects/hyponatremia/" + sheetName}>
+          Object.keys(db).map((sheetName) => (
+            <Link key={sheetName} href={"/projects/hyponatremia/" + sheetName}>
               <StyledTitle>
                 {sheetName}
               </StyledTitle>
             </Link>
-          </>))
+          ))
         }
       </div>
     </div>
