@@ -26,7 +26,7 @@ const ChatElement = (props: {
 }) => {
   return (
     <div className={'rounded-lg flex items-center' + ((props.sender)?" self-end ":" self-start ")}>
-      <div className={'w-fit relative p-2 pl-4 pr-4 rounded-lg ' + ((props.sender)?" bg-blue-200 mr-2":" bg-neutral-200 mr-2")}>
+      <div className={'w-fit relative p-2 pl-4 pr-4 rounded-lg ' + ((props.sender)?" bg-blue-200 ml-12":" bg-neutral-200 mr-12")}>
         {props.children}
       </div>
     </div>
@@ -97,7 +97,17 @@ const PE = (props: {
     <div className='w-full'>
       
       {/* Banner */}
-      <StickerBanner title='理學檢查' imageFile={props.data.Main.Image}>{"stickerbanner"}</StickerBanner>
+      <StickerBanner 
+        title='理學檢查' 
+        imageFile={props.data.Main.Image}
+        vs={{
+          GCS: props.data.Main.GCS,
+          Respiration: props.data.Main.Respiration,
+          Temperature: props.data.Main.Temperature,
+          Heartbeat: props.data.Main.Heartbeat,
+          Pressure: props.data.Main.Pressure
+        }}
+      >{"stickerbanner"}</StickerBanner>
       <div className='m-6'></div>
       
       {/* Buttons */}
@@ -117,17 +127,29 @@ const PE = (props: {
       <div className='choice inline-block w-4/12 align-top h-72'>
         <div className={'bg-blue-50 max-h-full overflow-auto m-2 ml-8 mr-8' + ((questions.length === 0)?"":"p-2")}>
           {
-            questions.map((key) => (
-              <PEElement 
-                key={key} 
-                keyId={key} 
-                peData={props.data.PE[key]} 
-                inquiryQuestions={props.data.Questions}
-                inquiryClick={(key: string) => {
-                  props.setInquiryHistory([...props.inquiryHistory, key]);
-                }}
-              />
-            ))
+            (questions.length === 0)?(
+              <div className='bg-neutral-100 m-4 p-4'>
+                <div className='font-semibold text-blue-700'>
+                  提示
+                </div>
+                <div>
+                  &gt;&nbsp;點擊左方按鈕模擬進行理學檢查 <br />
+                  &gt;&nbsp;點擊右上方頭貼以查看病人生命徵象
+                </div>
+              </div>
+            ):(
+              questions.map((key) => (
+                <PEElement 
+                  key={key} 
+                  keyId={key} 
+                  peData={props.data.PE[key]} 
+                  inquiryQuestions={props.data.Questions}
+                  inquiryClick={(key: string) => {
+                    props.setInquiryHistory([...props.inquiryHistory, key]);
+                  }}
+                />
+              ))
+            )
           }
         </div>
       </div>
