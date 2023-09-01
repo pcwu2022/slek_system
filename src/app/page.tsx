@@ -13,7 +13,7 @@ export default function Home() {
           
         </Link> */}
         <Link href="./projects/home">
-          <img src="/levels.png" alt="levels of slek" />
+          <img src="/levels2.png" alt="levels of slek" />
           <img src="https://www.webpagescreenshot.info/image-url/a9SxHmCkg" alt="slek image" className="w-full" />
         </Link>
         <img src="https://static.wixstatic.com/media/f29db6_c933960b4fc14b45b7f46b63cf157bea~mv2.jpeg" alt="slek image"  className="w-full" />
