@@ -18,7 +18,7 @@ const Entry = (props: {data: SheetJson}) => {
         <StyledTitle>Welcome to the Game!</StyledTitle>
         <div className='main-intro mt-8 h-full align-middle'>
           <StyledBox>
-            <div>Hyponatremia is a medical condition characterized by an abnormally low concentration of sodium ions in the blood, often below the normal range of 135-145 milliequivalents per liter (mEq/L). Sodium plays a crucial role in maintaining the body's fluid balance, nerve function, and muscle contractions.</div>
+            <div>{"Hyponatremia is a medical condition characterized by an abnormally low concentration of sodium ions in the blood, often below the normal range of 135-145 milliequivalents per liter (mEq/L). Sodium plays a crucial role in maintaining the body's fluid balance, nerve function, and muscle contractions."}</div>
           </StyledBox>
         </div>
       </div>
