@@ -1,7 +1,7 @@
 import React from 'react';
 import loadXlsx from '../ram_db/load_xlsx';
 import { DBJson, SheetJson } from '../ram_db/types';
-import ClientPage from './components/ClientPage';
+import ClientPage from './subpages/ClientPage';
 
 const db: DBJson = loadXlsx();
 

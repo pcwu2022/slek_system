@@ -1,11 +1,11 @@
 import React from 'react';
 import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
-import ToggleList from './ToggleList';
+import ToggleList from '../components/ToggleList';
 
 // components
-import ImageDisplay from './ImageDisplay';
-import { StyledTitle, StyledBox } from './StyledComponents';
+import ImageDisplay from '../components/ImageDisplay';
+import { StyledTitle, StyledBox } from '../components/StyledComponents';
 
 const MedHistory = (props: {data: SheetJson}) => {
   return (

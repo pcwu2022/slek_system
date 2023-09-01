@@ -3,8 +3,8 @@ import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
 
 // components
-import ImageDisplay from './ImageDisplay';
-import { StyledTitle, StyledBox } from './StyledComponents';
+import ImageDisplay from '../components/ImageDisplay';
+import { StyledTitle, StyledBox } from '../components/StyledComponents';
 
 const Entry = (props: {data: SheetJson}) => {
   return (
