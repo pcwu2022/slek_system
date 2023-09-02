@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-const page = () => {
-  const [state, setState] = useState<boolean>(false)
+const Page = () => {
+  const [state, setState] = useState<boolean>(false);
   return (
     <div>
       <>This Page is for Dev Mode Only <br /></>
@@ -32,4 +31,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default Page;
