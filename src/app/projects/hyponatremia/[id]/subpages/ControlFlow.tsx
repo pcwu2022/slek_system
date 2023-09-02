@@ -3,14 +3,28 @@
 import React from 'react';
 import * as enums from '../../ram_db/enums';
 
+// maximum days of failure
+const dayThreshold = 20;
+
 const ControlFlow = (props: { 
   state: enums.State, 
-  setState: React.Dispatch<React.SetStateAction<enums.State>> 
-  prevState: Array<enums.State>
-  setPrevState: React.Dispatch<React.SetStateAction<Array<enums.State>>> 
+  setState: React.Dispatch<React.SetStateAction<enums.State>>, 
+  prevState: Array<enums.State>,
+  setPrevState: React.Dispatch<React.SetStateAction<Array<enums.State>>>,
+  dayCounter: number,
+  setDayCounter: React.Dispatch<React.SetStateAction<number>>
 }) => {
 
   const goBack = () => {
+    // day counter
+    if (
+      props.state === enums.State.Diagnosis1 ||
+      props.state === enums.State.Diagnosis2 ||
+      props.state === enums.State.DiagnosisN ||
+      props.state === enums.State.DiagnosisF
+    ){
+      props.setDayCounter(props.dayCounter - 1);
+    }
     // return to previous
     props.setState(props.prevState[props.prevState.length - 1]);
     // remove last element of backtracking stack
@@ -20,6 +34,15 @@ const ControlFlow = (props: {
   }
 
   const goContinue = () => {
+    // day counter
+    if (
+      props.state === enums.State.Diagnosis1 ||
+      props.state === enums.State.Diagnosis2 ||
+      props.state === enums.State.DiagnosisN ||
+      props.state === enums.State.DiagnosisF
+    ){
+      props.setDayCounter(props.dayCounter + 1);
+    }
     // backtracking: push current state into stack
     props.setPrevState([...props.prevState, props.state]);
     // forward control flow
@@ -33,7 +56,7 @@ const ControlFlow = (props: {
       case enums.State.Diagnosis2: props.setState(enums.State.Therapy); break;
       case enums.State.Therapy: {
         // control success or continue
-        if (true){
+        if (false){
           props.setState(enums.State.DiagnosisF)
         } else {
           props.setState(enums.State.DiagnosisN)
@@ -44,7 +67,7 @@ const ControlFlow = (props: {
       case enums.State.DiagnosisN: props.setState(enums.State.TherapyN); break;
       case enums.State.TherapyN: {
         // control failure or continue
-        if (true){
+        if (props.dayCounter <= dayThreshold){
           props.setState(enums.State.ExaminationN)
         } else {
           props.setState(enums.State.Fail)

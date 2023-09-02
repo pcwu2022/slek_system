@@ -1,13 +1,136 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
 
-const Diagnosis = (props: {data: SheetJson}) => {
+// components
+import { StyledBox, StyledTitle, StyledButton } from '../components/StyledComponents';
+
+const ChoiceBox = (props: {
+  selected: boolean,
+  onSelect: () => void,
+  children: JSX.Element | string | null
+}) => {
   return (
-    <div>
-      
+    <div className=''>
+      {
+        (props.selected)?(
+          <div>
+            <div className='bg-red-100 m-2 p-2 align-middle duration-200 inline-block'>
+              {props.children}
+            </div>
+            <div 
+              className='remove font-extrabold rounded-full pl-2 pr-2 align-middle bg-red-200 inline-block hover:bg-red-700 hover:text-white cursor-pointer duration-200'
+              onClick={props.onSelect}
+            >-</div>
+          </div>
+        ):(
+          <div 
+            className='bg-blue-200 m-2 p-2 hover:bg-blue-300 duration-200 inline-block cursor-pointer'
+            onClick={props.onSelect}
+          >
+            {props.children}
+          </div>
+        )
+      }
+    </div>
+  )
+};
+
+const Diagnosis = (props: {
+  data: SheetJson,
+  diagnosisHistory: Array<Array<string>>,
+  setDiagnosisHistory: React.Dispatch<React.SetStateAction<Array<Array<string>>>>,
+  dayCounter: number
+}) => {
+
+  const [diagnosisArray, setDiagnosisArray] = useState<Array<string>>(
+    Object.keys(enums.Diagnosis)
+  );
+
+  // on start
+  useEffect(() => {
+    if (props.diagnosisHistory.length <= props.dayCounter){
+      props.setDiagnosisHistory([...props.diagnosisHistory, []]);
+    }
+  }, []);
+
+  return (
+    <div className='w-full'>
+      <div className='titleBanner text-center'>
+        <StyledTitle>
+          {
+            (props.dayCounter === 0)?( // first day
+              "初步診斷"
+            ):(props.dayCounter === 1)?( // second day
+              "二度診斷"
+            ):(props.dayCounter === -1)?( // final diagnosis
+              "最終診斷"
+            ):(
+              `診斷：入院第${props.dayCounter}天`
+            )
+          }
+        </StyledTitle>
+      </div>
+      <div className='main-container flex items-stretch w-full h-full'>
+        <div className='w-1/2 align-top h-full'>
+          <div className='m-8 p-4 bg-blue-50'>
+            <div className='font-semibold'>診斷選項</div>
+            <div>
+              {
+                diagnosisArray.map((key) => (
+                  <ChoiceBox
+                    key={key}
+                    selected={false}
+                    onSelect={() => {
+                      // remove from diagnosisArray
+                      let tempDA = [...diagnosisArray];
+                      tempDA.splice(tempDA.indexOf(key), 1);
+                      setDiagnosisArray(tempDA);
+
+                      // insert into diagnosisHistory
+                      let tempDH = [...props.diagnosisHistory];
+                      tempDH[props.dayCounter].push(key);
+                      props.setDiagnosisHistory(tempDH);
+                    }}
+                  >
+                    {enums.Diagnosis[key as keyof typeof enums.Diagnosis]}
+                  </ChoiceBox>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <div className='w-1/2 align-top h-full'>
+          <div className='m-8 p-4 bg-white'>
+            <div className='font-semibold'>患者可能患有疾病排序</div>
+            <div>
+              {
+                props.diagnosisHistory[props.dayCounter]?.map((key) => (
+                  <ChoiceBox
+                    key={key}
+                    selected={true}
+                    onSelect={() => {
+                      // remove from diagnosisHistory
+                      let tempDH = [...props.diagnosisHistory];
+                      tempDH[props.dayCounter].splice(tempDH[props.dayCounter].indexOf(key), 1);
+                      props.setDiagnosisHistory(tempDH);
+
+                      // insert into diagnosisArray
+                      let tempDA = [...diagnosisArray];
+                      tempDA.push(key);
+                      setDiagnosisArray(tempDA);
+                    }}
+                  >
+                    {enums.Diagnosis[key as keyof typeof enums.Diagnosis]}
+                  </ChoiceBox>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

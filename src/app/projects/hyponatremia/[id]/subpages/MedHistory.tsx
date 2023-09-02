@@ -24,7 +24,7 @@ const MedHistory = (props: {data: SheetJson}) => {
             <div className='med-history overflow-auto'>
               {
                 Object.keys(props.data.MedHistory).map((key) => (
-                  <ToggleList title={key} key={key}>
+                  <ToggleList title={enums.MedHistory[key as keyof typeof enums.MedHistory]} key={key}>
                     {props.data.MedHistory[key]}
                   </ToggleList>
                 ))
