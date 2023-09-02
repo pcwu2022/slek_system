@@ -8,13 +8,15 @@ const page = () => {
   const [state, setState] = useState<boolean>(false)
   return (
     <div>
+      <>This Page is for Dev Mode Only <br /></>
       {(state)?(
         <>
         Loaded XLSX into JSON <br />
         <Link href='/'><u>Back to homepage</u></Link>
         </>
       ):(
-        <button
+        <div
+          className='bg-neutral-300 cursor-pointer m-5 inline-block p-2 rounded-md'
           onClick={() => {
             fetch('/projects/hyponatremia/ram_db/load_db/api')
             .then((data) => {
@@ -24,7 +26,7 @@ const page = () => {
               alert(err);
             })
           }}
-        >Click to Load XLSX into JSON</button>
+        >Click to Load XLSX into JSON</div>
       )}
     </div>
   )
