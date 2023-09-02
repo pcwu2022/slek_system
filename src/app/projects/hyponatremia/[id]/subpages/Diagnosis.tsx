@@ -5,19 +5,40 @@ import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
 
 // components
-import { StyledBox, StyledTitle, StyledButton } from '../components/StyledComponents';
+import { StyledTitle } from '../components/StyledComponents';
 
 const ChoiceBox = (props: {
   selected: boolean,
   onSelect: () => void,
+  onUp: () => void,
+  onDown: () => void,
   children: JSX.Element | string | null
 }) => {
+  const [hover, setHover] = useState<boolean>(false);
+
   return (
     <div className=''>
       {
         (props.selected)?(
-          <div>
-            <div className='bg-red-100 m-2 p-2 align-middle duration-200 inline-block'>
+          <div
+            onMouseEnter={() => {setHover(true)}}
+            onMouseLeave={() => {setHover(false)}}
+          >
+            <div className={" align-middle " + ((hover)?" inline-block ":" hidden ")}>
+              <div className=''>
+                <div 
+                  className='text-xs text-white pl-1 pr-1 align-middle bg-yellow-400 block hover:bg-yellow-500  cursor-pointer duration-200'
+                  onClick={props.onUp}
+                >▲</div>
+                <div 
+                  className='text-xs text-white pl-1 pr-1 align-middle bg-yellow-400 block hover:bg-yellow-500  cursor-pointer duration-200'
+                  onClick={props.onDown}
+                >▼</div>
+              </div>
+            </div>
+            <div 
+              className='bg-red-100 m-2 p-2 align-middle duration-200 inline-block cursor-pointer'
+            >
               {props.children}
             </div>
             <div 
@@ -94,6 +115,8 @@ const Diagnosis = (props: {
                       tempDH[props.dayCounter].push(key);
                       props.setDiagnosisHistory(tempDH);
                     }}
+                    onUp={() => {}}
+                    onDown={() => {}}
                   >
                     {enums.Diagnosis[key as keyof typeof enums.Diagnosis]}
                   </ChoiceBox>
@@ -121,6 +144,20 @@ const Diagnosis = (props: {
                       let tempDA = [...diagnosisArray];
                       tempDA.push(key);
                       setDiagnosisArray(tempDA);
+                    }}
+                    onUp={() => {
+                      let tempDH = [...props.diagnosisHistory];
+                      let index: number = tempDH[props.dayCounter].indexOf(key);
+                      let spliced: string = tempDH[props.dayCounter].splice(index, 1)[0];
+                      tempDH[props.dayCounter].splice(Math.max(index-1, 0), 0, spliced);
+                      props.setDiagnosisHistory(tempDH);
+                    }}
+                    onDown={() => {
+                      let tempDH = [...props.diagnosisHistory];
+                      let index: number = tempDH[props.dayCounter].indexOf(key);
+                      let spliced: string = tempDH[props.dayCounter].splice(index, 1)[0];
+                      tempDH[props.dayCounter].splice(Math.min(index+1, tempDH[props.dayCounter].length), 0, spliced);
+                      props.setDiagnosisHistory(tempDH);
                     }}
                   >
                     {enums.Diagnosis[key as keyof typeof enums.Diagnosis]}
