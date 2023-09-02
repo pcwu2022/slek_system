@@ -1,4 +1,4 @@
-import React, { ReactComponentElement } from 'react';
+import React, { ReactComponentElement, useEffect } from 'react';
 import type { PageData } from '../types/types';
 import loadXlsx from './ram_db/load_xlsx';
 import { DBJson } from './ram_db/types';
@@ -21,13 +21,17 @@ const hyponatremia = () => {
       <div className='text-2xl'>Welcome to Hyponatremia Simulator. <br /> Choose a Level to play:</div>
       <div>
         {
-          Object.keys(db).map((sheetName) => (
-            <Link key={sheetName} href={"/projects/hyponatremia/" + sheetName}>
-              <StyledTitle>
-                {sheetName}
-              </StyledTitle>
-            </Link>
-          ))
+          (db === null)?(
+            <>Loading data...</>
+          ):(
+            Object.keys(db).map((sheetName) => (
+              <Link key={sheetName} href={"/projects/hyponatremia/" + sheetName}>
+                <StyledTitle>
+                  {sheetName}
+                </StyledTitle>
+              </Link>
+            ))
+          )
         }
       </div>
     </div>

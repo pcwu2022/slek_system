@@ -67,17 +67,22 @@ const loadInternal = () => {
     return writeDb;
 };
 
-export default () => {
+export default (mode = "production") => {
     // if dev mode convert to json
     // if production read json
-    const env = process.env.NODE_ENV;
-    if (env == "development"){
+    if (mode === "development"){
         const writeDb: DBJson = loadInternal();
         fs.writeFile(jsonPath, JSON.stringify(writeDb, null, 4), () => {
             console.log("updated db.json");
         });
         return writeDb;
     } else {
-        return json;
+        try {
+            const json_typed: DBJson = json as DBJson;
+            return json_typed;
+        } catch {
+            console.error("Error: cannot read json");
+            return {} as DBJson;
+        }
     }
 }
