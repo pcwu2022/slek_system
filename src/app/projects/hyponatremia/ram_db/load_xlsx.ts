@@ -77,7 +77,7 @@ export default () => {
             console.log("updated db.json");
         });
         return writeDb;
-    } else (env == "production"){
+    } else {
         return json;
     }
 }
