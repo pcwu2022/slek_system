@@ -16,7 +16,10 @@ import {
     DBJson
 } from "./types";
 
+import * as fs from 'fs';
 import * as XLSX from "xlsx";
+
+import json from "./db.json";
 
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
@@ -24,6 +27,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const xlsxPath = path.join(__dirname, "./db.xlsx");
+const jsonPath = path.join(__dirname, "./db.json");
 
 const transpose = (matrix: Array<Array<string>>) => {
     return matrix[0].map((col, i) => matrix.map(row => row[i]));
@@ -64,5 +68,16 @@ const loadInternal = () => {
 };
 
 export default () => {
-    return loadInternal();
+    // if dev mode convert to json
+    // if production read json
+    const env = process.env.NODE_ENV;
+    if (env == "development"){
+        const writeDb: DBJson = loadInternal();
+        fs.writeFile(jsonPath, JSON.stringify(writeDb, null, 4), () => {
+            console.log("updated db.json");
+        });
+        return writeDb;
+    } else (env == "production"){
+        return json;
+    }
 }
