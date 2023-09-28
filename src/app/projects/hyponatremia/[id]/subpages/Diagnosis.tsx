@@ -6,6 +6,7 @@ import * as enums from '../../ram_db/enums';
 
 // components
 import { StyledTitle } from '../components/StyledComponents';
+import StickerBanner from '../components/StickerBanner';
 
 const ChoiceBox = (props: {
   selected: boolean,
@@ -79,21 +80,29 @@ const Diagnosis = (props: {
 
   return (
     <div className='w-full'>
-      <div className='titleBanner text-center'>
-        <StyledTitle>
-          {
-            (props.dayCounter === 0)?( // first day
-              "初步診斷"
-            ):(props.dayCounter === 1)?( // second day
-              "二度診斷"
-            ):(props.dayCounter === -1)?( // final diagnosis
-              "最終診斷"
-            ):(
-              `診斷：入院第${props.dayCounter}天`
-            )
-          }
-        </StyledTitle>
-      </div>
+      {/* Banner */}
+      <StickerBanner
+        title={
+          (props.dayCounter === 0)?( // first day
+            "初步診斷"
+          ):(props.dayCounter === 1)?( // second day
+            "二度診斷"
+          ):(props.dayCounter === -1)?( // final diagnosis
+            "最終診斷"
+          ):(
+            `診斷：入院第${props.dayCounter}天`
+          )
+        }
+        imageFile={props.data.Main.Image}
+        vs={{
+          GCS: props.data.Main.GCS,
+          Respiration: props.data.Main.Respiration,
+          Temperature: props.data.Main.Temperature,
+          Heartbeat: props.data.Main.Heartbeat,
+          Pressure: props.data.Main.Pressure
+        }}
+      >{"stickerbanner"}</StickerBanner>
+      <div className='m-6'></div>
       <div className='main-container flex items-stretch w-full h-full'>
         <div className='w-1/2 align-top h-full'>
           <div className='m-8 p-4 bg-blue-50'>

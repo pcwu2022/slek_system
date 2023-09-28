@@ -65,6 +65,8 @@ const Therapy = (props: {
   useEffect(() => {
     if (props.therapyHistory.length <= props.dayCounter){
       props.setTherapyHistory([...props.therapyHistory, []]);
+    } else {
+      setTherapyArray(props.therapyHistory[props.dayCounter]);
     }
   }, []);
 
@@ -99,7 +101,7 @@ const Therapy = (props: {
                   if (key !== "Saline" && key !== "Saline3"){
                     setTherapyArray([...therapyArray, [key, null, null]]);
                     let tempTH = [...props.therapyHistory];
-                    tempTH.splice(props.dayCounter, 1, [...therapyArray, [key, null, null]]);
+                    tempTH[props.dayCounter] = [...therapyArray, [key, null, null]];
                     props.setTherapyHistory(tempTH);
                   }
                 }
@@ -167,7 +169,7 @@ const Therapy = (props: {
                     if (dosageIndex!==null && timeIndex!==null){
                       setTherapyArray([...therapyArray, [buttonIndex, dosageIndex, timeIndex]])
                       let tempTH = [...props.therapyHistory];
-                      tempTH.splice(props.dayCounter, 1, [...therapyArray, [buttonIndex, dosageIndex, timeIndex]]);
+                      tempTH[props.dayCounter] = [...therapyArray, [buttonIndex, dosageIndex, timeIndex]];
                       props.setTherapyHistory(tempTH);
                       setButtonIndex(null);
                     }
