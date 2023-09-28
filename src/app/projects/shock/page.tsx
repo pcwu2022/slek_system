@@ -6,7 +6,7 @@ const shock = () => {
       <iframe 
         src="https://teamb.slekmed.org/" 
         frameBorder="0"
-        className='w-screen min-h-screen no-scrollbar -md-4'
+        className='w-full min-h-screen no-scrollbar -md-4'
       ></iframe>
     </div>
   )
