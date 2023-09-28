@@ -23,7 +23,7 @@ const StyledButton = (props: {
 }) => {
     const [state, setState] = useState<boolean>(false);
     return (
-        <>
+        <div className='w-full'>
             <div 
                 onClick={(e) => {
                     setState(!state);
@@ -31,7 +31,7 @@ const StyledButton = (props: {
                 }} 
                 className = {"cursor-pointer hover:scale-95 duration-100 font-semibold rounded-lg text-lg inline-block p-4 pt-2 pb-2 m-2 " + (state?"bg-blue-800 text-white ":"bg-white text-blue-800 ")}
             > {props.children} </div>
-        </>
+        </div>
     )
 };
 
@@ -41,14 +41,14 @@ const StyledButtonDrill = (props: {
     state: boolean 
 }) => {
     return (
-        <>
+        <div className='w-full'>
             <div 
                 onClick={(e) => {
                     props.onClick(e);
                 }} 
                 className = {"cursor-pointer hover:scale-95 duration-100 font-semibold rounded-lg text-lg inline-block p-4 pt-2 pb-2 m-2 " + (props.state?"bg-blue-800 text-white ":"bg-white text-blue-800 ")}
             > {props.children} </div>
-        </>
+        </div>
     )
 };
 
