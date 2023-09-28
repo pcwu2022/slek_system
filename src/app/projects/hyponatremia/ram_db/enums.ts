@@ -54,7 +54,7 @@ enum Therapy {
     Saline = "Normal Saline",
     Restriction = "Fluid Restriction",
     Diuretics = "Diuretics",
-    VRA = "Vassopresin Receptor Antagonists"
+    VRA = "Vasopressin Receptor Antagonists"
 };
 
 enum Dosage {
