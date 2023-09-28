@@ -56,6 +56,25 @@ enum Therapy {
     VRA = "Vassopresin Receptor Antagonists"
 };
 
+enum Dosage {
+    L05 = "500 ml",
+    L10 = "1000 ml",
+    L15 = "1500 ml",
+    L20 = "2000 ml",
+    L25 = "2500 ml",
+    L30 = "3000 ml"
+};
+
+enum Time {
+    TIDPC = "TIDPC",
+    TIDAC = "TIDAC",
+    TIDACHS = "TIDAC + HS",
+    Q12H = "Q12H",
+    Q8H = "Q8H",
+    Q6H = "Q6H",
+    Q4H = "Q4H"
+}
+
 // Variables for History Questions
 enum MedHistory {
     PMH = "既往病史",
@@ -153,5 +172,7 @@ export {
     Blood,
     Urine,
     Radiology,
-    ABG
+    ABG,
+    Dosage,
+    Time
 };

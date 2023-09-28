@@ -26,6 +26,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
   const [prevState, setPrevState] = useState<Array<enums.State>>([enums.State.Entry]); // backtracking
   const [inquiryHistory, setInquiryHistory] = useState<Array<string>>([]);
   const [diagnosisHistory, setDiagnosisHistory] = useState<Array<Array<string>>>([]);
+  const [therapyHistory, setTherapyHistory] = useState<Array<Array<[string|null, string|null, string|null]>>>([]);
   const [dayCounter, setDayCounter] = useState<number>(0);
 
   // on page load
@@ -51,11 +52,11 @@ const ClientPage = ( props: { db: DBJson } ) => {
           (state === enums.State.Diagnosis1) ? <Diagnosis data={sheet} diagnosisHistory={diagnosisHistory} setDiagnosisHistory={setDiagnosisHistory} dayCounter={dayCounter} /> : 
           (state === enums.State.Examination) ? <Examination data={sheet} /> : 
           (state === enums.State.Diagnosis2) ? <Diagnosis data={sheet} diagnosisHistory={diagnosisHistory} setDiagnosisHistory={setDiagnosisHistory} dayCounter={dayCounter} /> : 
-          (state === enums.State.Therapy) ? <Therapy data={sheet} /> : 
+          (state === enums.State.Therapy) ? <Therapy data={sheet} dayCounter={dayCounter} therapyHistory={therapyHistory} setTherapyHistory={setTherapyHistory} /> : 
           (state === enums.State.DiagnosisF) ? <Diagnosis data={sheet} diagnosisHistory={diagnosisHistory} setDiagnosisHistory={setDiagnosisHistory} dayCounter={-1} /> : 
           (state === enums.State.Success) ? <Success data={sheet} /> : 
           (state === enums.State.ExaminationN) ? <Examination data={sheet} /> : 
-          (state === enums.State.TherapyN) ? <Therapy data={sheet} /> : 
+          (state === enums.State.TherapyN) ? <Therapy data={sheet} dayCounter={dayCounter} therapyHistory={therapyHistory} setTherapyHistory={setTherapyHistory} /> : 
           (state === enums.State.DiagnosisN) ? <Diagnosis data={sheet} diagnosisHistory={diagnosisHistory} setDiagnosisHistory={setDiagnosisHistory} dayCounter={dayCounter} /> : 
           (state === enums.State.Fail) ? <Fail data={sheet} /> : <></>
         }
