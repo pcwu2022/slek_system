@@ -172,6 +172,8 @@ const Therapy = (props: {
                       tempTH[props.dayCounter] = [...therapyArray, [buttonIndex, dosageIndex, timeIndex]];
                       props.setTherapyHistory(tempTH);
                       setButtonIndex(null);
+                      setDosageIndex(null);
+                      setTimeIndex(null);
                     }
                   }}
                 >確定</div>
