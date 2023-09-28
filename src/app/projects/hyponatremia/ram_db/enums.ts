@@ -29,7 +29,11 @@ enum Main {
     IndexH = "指數上限",
     IndexL = "指數下限",
     Answer = "解答",
-    Detailed = "詳解"
+    Detailed = "詳解",
+    Radiology = "放射檢查",
+    Urine = "尿液檢查",
+    Blood = "血液檢查",
+    ABG = "動脈氣體分析"
 };
 
 // Variables for Dignosis Choices
