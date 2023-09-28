@@ -67,9 +67,6 @@ enum Dosage {
 };
 
 enum Time {
-    TIDPC = "TIDPC",
-    TIDAC = "TIDAC",
-    TIDACHS = "TIDAC + HS",
     Q12H = "Q12H",
     Q8H = "Q8H",
     Q6H = "Q6H",
