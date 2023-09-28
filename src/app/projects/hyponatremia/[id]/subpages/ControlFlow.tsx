@@ -18,10 +18,10 @@ const ControlFlow = (props: {
   const goBack = () => {
     // day counter
     if (
-      props.state === enums.State.Diagnosis1 ||
-      props.state === enums.State.Diagnosis2 ||
-      props.state === enums.State.DiagnosisN ||
-      props.state === enums.State.DiagnosisF
+      props.prevState[props.prevState.length-1] === enums.State.Diagnosis1 ||
+      props.prevState[props.prevState.length-1] === enums.State.Diagnosis2 ||
+      props.prevState[props.prevState.length-1] === enums.State.DiagnosisN ||
+      props.prevState[props.prevState.length-1] === enums.State.DiagnosisF
     ){
       props.setDayCounter(props.dayCounter - 1);
     }
