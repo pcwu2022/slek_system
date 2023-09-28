@@ -44,7 +44,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
         {
           // switch display in the page
           (sheet === null) ? <></> : // check if null
-          (state === enums.State.Entry) ? <Entry data={sheet} /> :
+          (state === enums.State.Entry) ? <Entry data={sheet} state={state} setState={setState} /> :
           (state === enums.State.CC) ? <CC data={sheet} /> : 
           (state === enums.State.MedHistory) ? <MedHistory data={sheet} /> : 
           (state === enums.State.PE) ? <PE data={sheet} inquiryHistory={inquiryHistory} setInquiryHistory={setInquiryHistory} /> : 

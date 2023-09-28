@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { experimental_useOptimistic } from 'react';
 import * as enums from '../../ram_db/enums';
 
 // maximum days of failure
@@ -89,7 +89,7 @@ const ControlFlow = (props: {
         // create goBack button if not on the entry state
         <div className='back-button underline relative float-left hover:cursor-pointer' onClick={goBack}>{"<"} back</div>
       )}
-      {(props.state === enums.State.Success || props.state === enums.State.Fail)?(<></>):(
+      {(props.state === enums.State.Entry || props.state === enums.State.Success || props.state === enums.State.Fail)?(<></>):(
         // create goCountinue button if not on the finish state
         <div className='continue-button underline relative float-right hover:cursor-pointer' onClick={goContinue}>continue {">"}</div>
       )}
