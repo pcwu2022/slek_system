@@ -97,7 +97,7 @@ const Examination = (props: {data: SheetJson}) => {
                   {
                     Object.keys(props.data[buttonIndex]).map((key) => (
                       (checked[Object.keys(props.data[buttonIndex]).indexOf(key)])?(
-                        <tr>
+                        <tr key={key}>
                           <td className='border-2 border-solid border-black p-2'>{key}</td>
                           <td className='border-2 border-solid border-black p-2 break-words'>{props.data[buttonIndex][key]}</td>
                         </tr>
