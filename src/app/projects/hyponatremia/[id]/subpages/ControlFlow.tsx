@@ -54,9 +54,10 @@ const ControlFlow = (props: {
       case enums.State.Diagnosis1: props.setState(enums.State.Examination); break;
       case enums.State.Examination: props.setState(enums.State.Diagnosis2); break;
       case enums.State.Diagnosis2: props.setState(enums.State.Therapy); break;
-      case enums.State.Therapy: {
+      case enums.State.Therapy: props.setState(enums.State.Transition); break;
+      case enums.State.Transition: {
         // control success or continue
-        if (false){
+        if (true){
           props.setState(enums.State.DiagnosisF)
         } else {
           props.setState(enums.State.DiagnosisN)

@@ -10,6 +10,7 @@ enum State {
     Examination = "檢查",
     Diagnosis2 = "第二次診斷",
     Therapy = "治療",
+    Transition = "太陽升起後又落下",
     DiagnosisF = "最終診斷",
     Success = "順利出院",
     ExaminationN = "檢查（重複）",

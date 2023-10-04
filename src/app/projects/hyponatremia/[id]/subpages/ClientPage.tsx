@@ -17,6 +17,7 @@ import Examination from './Examination';
 import Therapy from './Therapy';
 import Success from './Success';
 import Fail from './Fail';
+import Transition from './Transition';
 
 const ClientPage = ( props: { db: DBJson } ) => {
   const params = useParams();
@@ -54,6 +55,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
           (state === enums.State.Diagnosis2) ? <Diagnosis data={sheet} diagnosisHistory={diagnosisHistory} setDiagnosisHistory={setDiagnosisHistory} dayCounter={dayCounter} /> : 
           (state === enums.State.Therapy) ? <Therapy data={sheet} dayCounter={dayCounter} therapyHistory={therapyHistory} setTherapyHistory={setTherapyHistory} /> : 
           (state === enums.State.DiagnosisF) ? <Diagnosis data={sheet} diagnosisHistory={diagnosisHistory} setDiagnosisHistory={setDiagnosisHistory} dayCounter={-1} /> : 
+          (state === enums.State.Transition) ? <Transition data={sheet} /> : 
           (state === enums.State.Success) ? <Success data={sheet} /> : 
           (state === enums.State.ExaminationN) ? <Examination data={sheet} /> : 
           (state === enums.State.TherapyN) ? <Therapy data={sheet} dayCounter={dayCounter} therapyHistory={therapyHistory} setTherapyHistory={setTherapyHistory} /> : 
