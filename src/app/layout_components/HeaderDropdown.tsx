@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 const HeaderDropdown = (props: {
-  display: boolean,
-  loggedIn: boolean
+  display: boolean
 }) => {
   const [hover, setHover] = useState<boolean>(false);
+  const { data: session, status } = useSession();
+  const loggedIn = (status === "authenticated");
   return (
     <div className='w-full absolute z-50'>
       <div 
@@ -18,15 +20,15 @@ const HeaderDropdown = (props: {
           setHover(false);
         }}
       >
-        <Link href={props.loggedIn?"../api/auth/signout":"../api/auth/signin"}>
+        <Link href={loggedIn?"../api/auth/signout":"../api/auth/signin"}>
           <div className={'bg-blue-800 m-2 p-2 text-center cursor-pointer text-white hover:bg-blue-600 ' + ((props.display || hover)?"block":"hidden")}>
-            {props.loggedIn?"Log Out":"Log In"}
+            {loggedIn?"Log Out":"Log In"}
           </div>
         </Link>
         {
-          props.loggedIn?
+          loggedIn?
           <>
-            <Link href={props.loggedIn?"../profile":"../api/auth/signin"}>
+            <Link href={"../profile"}>
               <div className={'bg-blue-800 m-2 p-2 text-center cursor-pointer text-white hover:bg-blue-600 ' + ((props.display || hover)?"block":"hidden")}>
                 My Profile
               </div>
