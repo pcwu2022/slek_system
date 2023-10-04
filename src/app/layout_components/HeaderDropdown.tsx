@@ -33,6 +33,11 @@ const HeaderDropdown = (props: {
                 My Profile
               </div>
             </Link>
+            <Link href={"../projects"}>
+              <div className={'bg-blue-800 m-2 p-2 text-center cursor-pointer text-white hover:bg-blue-600 ' + ((props.display || hover)?"block":"hidden")}>
+                Home
+              </div>
+            </Link>
           </>:""
         }
       </div>
