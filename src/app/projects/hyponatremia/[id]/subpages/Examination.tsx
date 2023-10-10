@@ -63,8 +63,8 @@ const Examination = (props: {data: SheetJson}) => {
               {
                 <CheckList 
                   elements={
-                    Object.keys(props.data[buttonIndex]).map((key) => (
-                      props.data[buttonIndex][key]
+                    Object.keys(props.data[buttonIndex]).filter((key) => (key!=='-')).map((key) => (
+                      key
                     ))
                   }
                   checked={checked}
