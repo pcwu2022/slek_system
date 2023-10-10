@@ -54,16 +54,16 @@ const ControlFlow = (props: {
       case enums.State.Diagnosis1: props.setState(enums.State.Examination); break;
       case enums.State.Examination: props.setState(enums.State.Diagnosis2); break;
       case enums.State.Diagnosis2: props.setState(enums.State.Therapy); break;
-      case enums.State.Therapy: props.setState(enums.State.Transition); break;
-      case enums.State.Transition: {
+      case enums.State.Therapy: {
         // control success or continue
-        if (true){
+        if (false){
           props.setState(enums.State.DiagnosisF)
         } else {
-          props.setState(enums.State.DiagnosisN)
+          props.setState(enums.State.Transition)
         }
         break;
       }
+      case enums.State.Transition: props.setState(enums.State.DiagnosisN); break;
       case enums.State.DiagnosisF: props.setState(enums.State.Success); break;
       case enums.State.DiagnosisN: props.setState(enums.State.TherapyN); break;
       case enums.State.TherapyN: {
@@ -86,11 +86,11 @@ const ControlFlow = (props: {
   
   return (
     <div className='control-flow block relative w-full text-blue-700 font-bold'> 
-      {(props.state === enums.State.Entry)?(<></>):(
+      {(props.state === enums.State.Entry || props.state === enums.State.Transition)?(<></>):(
         // create goBack button if not on the entry state
         <div className='back-button underline relative float-left hover:cursor-pointer' onClick={goBack}>{"<"} back</div>
       )}
-      {(props.state === enums.State.Entry || props.state === enums.State.Success || props.state === enums.State.Fail)?(<></>):(
+      {(props.state === enums.State.Entry || props.state === enums.State.Transition || props.state === enums.State.Success || props.state === enums.State.Fail)?(<></>):(
         // create goCountinue button if not on the finish state
         <div className='continue-button underline relative float-right hover:cursor-pointer' onClick={goContinue}>continue {">"}</div>
       )}
