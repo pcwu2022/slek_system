@@ -23,6 +23,8 @@ import json from "./db.json";
 
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
+import * as enums from './enums';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -42,6 +44,9 @@ const loadInternal = () => {
     let writeDb: DBJson = {};
 
     for ( let sheetName of sheetNames ){
+        if (sheetName === "Template"){
+            continue;
+        }
         // extract one sheet at a time and translate to js document type
         let sheet: XLSX.WorkSheet = workbook.Sheets[sheetName];
         let json: Array<Array<string>> = XLSX.utils.sheet_to_json(sheet, { header:1 });
@@ -56,7 +61,10 @@ const loadInternal = () => {
             if (values === undefined) break;
             for (let j = 1; j < keys.length; j++){
                 if (keys[j] === undefined) break;
-                dic[keys[j]] = (values[j] === undefined)?"-":values[j];
+                dic[keys[j]] = (values[j] === undefined || values[j] === "Nil")?"-":values[j];
+                if (Object.keys(enums.Units).indexOf(keys[j]) !== -1){
+                    dic[keys[j]] += " " + enums.Units[keys[j] as keyof typeof enums.Units];
+                }
             }
             sheetDic[keys[0]] = dic;
         }

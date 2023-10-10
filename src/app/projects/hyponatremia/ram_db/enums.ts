@@ -34,7 +34,23 @@ enum Main {
     Radiology = "放射檢查",
     Urine = "尿液檢查",
     Blood = "血液檢查",
-    ABG = "動脈氣體分析"
+    ABG = "動脈氣體分析",
+    Weight = "體重"
+};
+
+enum Units {
+    Na = "mmol/L",
+    K = "mmol/L",
+    Creatinine = "mg/dL",
+    Osmolarity = "mOsm/kgH2O",
+    BUN = "mg/dL",
+    EGFR = "ml/min/1.73 m^2",
+    TSH = "ulU/mL",
+    FREET4 = "ng/dL",
+    ACTH = "pg/mL",
+    UricAcid = "mg/dL",
+    Weight = "kg",
+    Pressure = "mmHg/mmHg"
 };
 
 // Variables for Dignosis Choices
@@ -121,7 +137,9 @@ enum Blood {
     GOT = "GOT",
     Protein = "血蛋白",
     Sugar = "血糖",
-    TBIL = "總膽紅素"
+    TBIL = "總膽紅素",
+    FREET4 = "FREET4",
+    UricAcid = "Uric Acid"
 };
 
 // Variables for the Second Level of Examination: Urea Test
@@ -162,6 +180,7 @@ enum ABG {
 export {
     State,
     Main,
+    Units,
     Diagnosis,
     Therapy,
     MedHistory,
