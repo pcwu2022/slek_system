@@ -2,6 +2,7 @@
 
 import React, { experimental_useOptimistic } from 'react';
 import * as enums from '../../ram_db/enums';
+import { SheetJson } from '../../ram_db/types';
 
 // maximum days of failure
 const dayThreshold = 20;
@@ -12,7 +13,8 @@ const ControlFlow = (props: {
   prevState: Array<enums.State>,
   setPrevState: React.Dispatch<React.SetStateAction<Array<enums.State>>>,
   dayCounter: number,
-  setDayCounter: React.Dispatch<React.SetStateAction<number>>
+  setDayCounter: React.Dispatch<React.SetStateAction<number>>,
+  data: SheetJson | null
 }) => {
 
   const goBack = () => {
@@ -56,10 +58,12 @@ const ControlFlow = (props: {
       case enums.State.Diagnosis2: props.setState(enums.State.Therapy); break;
       case enums.State.Therapy: {
         // control success or continue
-        if (false){
+        if (props.data === null){
           props.setState(enums.State.DiagnosisF)
+        } else if (props.data.Blood.Na < props.data.Main.IndexL || props.data.Blood.Na < props.data.Main.IndexH){
+          props.setState(enums.State.DiagnosisF);
         } else {
-          props.setState(enums.State.Transition)
+          props.setState(enums.State.Transition);
         }
         break;
       }

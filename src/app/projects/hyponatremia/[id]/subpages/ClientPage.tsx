@@ -70,6 +70,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
         setPrevState={setPrevState}
         dayCounter={dayCounter}
         setDayCounter={setDayCounter}
+        data={sheet}
       />
     </div>
   )
