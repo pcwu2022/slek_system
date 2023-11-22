@@ -69,7 +69,7 @@ const loadInternal = () => {
             sheetDic[keys[0]] = dic;
         }
 
-        writeDb[sheetName] = sheetDic;
+        writeDb[sheetName.replaceAll(" ", "")] = sheetDic;
     }
 
     return writeDb;
