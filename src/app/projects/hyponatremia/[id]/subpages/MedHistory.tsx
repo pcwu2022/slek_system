@@ -4,6 +4,7 @@ import React from 'react';
 import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
 import ToggleList from '../components/ToggleList';
+import template from '../../ram_db/template.json';
 
 // components
 import ImageDisplay from '../components/ImageDisplay';
@@ -24,7 +25,7 @@ const MedHistory = (props: {data: SheetJson}) => {
             <div className='med-history overflow-auto'>
               {
                 Object.keys(props.data.MedHistory).map((key) => (
-                  <ToggleList title={enums.MedHistory[key as keyof typeof enums.MedHistory]} key={key}>
+                  <ToggleList title={template.MedHistory[key as keyof typeof template.MedHistory]} key={key}>
                     {props.data.MedHistory[key]}
                   </ToggleList>
                 ))

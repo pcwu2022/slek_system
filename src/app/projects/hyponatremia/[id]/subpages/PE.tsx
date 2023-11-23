@@ -5,6 +5,7 @@ import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
 import Image from 'next/image';
 import { LoremIpsum } from "lorem-ipsum";
+import template from '../../ram_db/template.json';
 
 // components
 import { StyledTitle, StyledBox, StyledButton } from '../components/StyledComponents';
@@ -44,7 +45,7 @@ const PEElement = (props: {
   return (
     <div className='bg-neutral-100 m-4 p-4'>
       <div className='font-semibold text-blue-700'>
-        {enums.PE[props.keyId as keyof typeof enums.PE]}
+        {template.PE[props.keyId as keyof typeof template.PE]}
       </div>
       {
         (props.keyId !== "Inquiry")?(
@@ -119,7 +120,7 @@ const PE = (props: {
             <StyledButton key={key} onClick={(e) => {
               buttonActive(key);
             }}>{
-              enums.PE[key as keyof typeof enums.PE]
+              template.PE[key as keyof typeof template.PE]
             }</StyledButton>
           ))
         }

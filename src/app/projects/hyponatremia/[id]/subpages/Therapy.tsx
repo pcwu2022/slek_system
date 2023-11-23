@@ -6,6 +6,7 @@ import * as enums from '../../ram_db/enums';
 import StickerBanner from '../components/StickerBanner';
 import { StyledButtonDrill } from '../components/StyledComponents';
 import CheckList from '../components/CheckList';
+import template from '../../ram_db/template.json';
 
 const ChoiceElement = (props: {
   children: JSX.Element | string | null
