@@ -59,9 +59,10 @@ const loadInternal = () => {
             let values = jsonConverted[i+1];
             if (values === undefined) break;
             for (let j = 1; j < keys.length; j++){
+                if (keys[j] === "") continue;
                 if (keys[j] === undefined) break;
                 dic[keys[j]] = (values[j] === undefined || values[j] === null || values[j] === "Nil")?"-":values[j];
-                if (Object.keys(enums.Units).indexOf(keys[j]) !== -1){
+                if (Object.keys(enums.Units).indexOf(keys[j]) !== -1 && sheetName !== "Template"){
                     dic[keys[j]] += " " + enums.Units[keys[j] as keyof typeof enums.Units];
                 }
             }

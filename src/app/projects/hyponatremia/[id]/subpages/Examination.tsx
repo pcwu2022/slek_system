@@ -11,10 +11,10 @@ import StickerBanner from '../components/StickerBanner';
 import CheckList from '../components/CheckList';
 
 const Examination = (props: {data: SheetJson}) => {
-  const [buttonIndex, setButtonIndex] = useState<string | null>(null);
+  const [buttonIndex, setButtonIndex] = useState<keyof typeof template | null>(null);
   const [checked, setChecked] = useState<Array<boolean> | null>(null);
 
-  const buttonArray = ["Blood", "Urine", "ABG", "Radiology"];
+  const buttonArray: Array<keyof typeof template> = ["Blood", "Urine", "ABG", "Radiology"];
   return (
     <div className='w-full'>
       {/* Banner */}
@@ -65,7 +65,7 @@ const Examination = (props: {data: SheetJson}) => {
                 <CheckList 
                   elements={
                     Object.keys(props.data[buttonIndex]).filter((key) => (key!=='-')).map((key) => (
-                      key
+                      template[buttonIndex][key as keyof typeof template[typeof buttonIndex]]
                     ))
                   }
                   checked={checked}
@@ -99,7 +99,7 @@ const Examination = (props: {data: SheetJson}) => {
                     Object.keys(props.data[buttonIndex]).map((key) => (
                       (checked[Object.keys(props.data[buttonIndex]).indexOf(key)])?(
                         <tr key={key}>
-                          <td className='border-2 border-solid border-black p-2'>{key}</td>
+                          <td className='border-2 border-solid border-black p-2'>{template[buttonIndex][key as keyof typeof template[typeof buttonIndex]]}</td>
                           <td className='border-2 border-solid border-black p-2 break-words'>{props.data[buttonIndex][key]}</td>
                         </tr>
                       ):("")
