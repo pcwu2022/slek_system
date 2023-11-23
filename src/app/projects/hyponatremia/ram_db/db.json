@@ -1,8 +1,8 @@
 {
     "DBPROPS": {
         "props": {
-            "version": "10",
-            "dateModified": "Thu Nov 23 2023 16:00:03 GMT+0800 (Taipei Standard Time)"
+            "version": "13",
+            "dateModified": "Thu Nov 23 2023 16:20:24 GMT+0800 (Taipei Standard Time)"
         }
     },
     "Template": {
@@ -14,13 +14,13 @@
             "Respiration": "呼吸",
             "Temperature": "體溫",
             "Heartbeat": "心跳",
-            "Pressure": "血壓 mmHg/mmHg",
+            "Pressure": "血壓",
             "IndexH": "指數正常上限",
             "IndexL": "指數正常下限",
             "Answer": "請選擇",
             "Detailed": "詳解",
             "Image": "請選擇",
-            "Weight": "60 kg"
+            "Weight": "60"
         },
         "MedHistory": {
             "PMH": "既往病史",
@@ -28,21 +28,20 @@
             "Travel": "旅遊史",
             "Allergy": "過敏史",
             "Medications": "藥物史",
-            "Location": "Location",
-            "Quality": "Quality",
-            "Quantity": "Quantity",
-            "Onset mode": "Onset mode",
-            "PrecipitatingFactors": "Precipitating Factors",
-            "ExaggeratingFactors": "Exaggerating Factors",
-            "RelievingFactors": "Relieving Factors",
-            "AccompanyingSymptoms": "Accompanying Symptoms"
+            "Location": "位置",
+            "Quality": "型態",
+            "Quantity": "歷時長短",
+            "Onset mode": "發作形式",
+            "PrecipitatingFactors": "情境或誘發因素",
+            "ExaggeratingFactors": "加重因素",
+            "RelievingFactors": "緩解因素",
+            "AccompanyingSymptoms": "伴隨症狀"
         },
         "Examination": {
             "Blood": "血液檢查",
             "Urine": "尿液檢查",
             "Radiology": "放射檢查",
-            "ABG": "動脈氣體分析",
-            "": ""
+            "ABG": "動脈氣體分析"
         },
         "PE": {
             "Inquiry": "問診",
@@ -52,50 +51,50 @@
             "Palpation": "觸診"
         },
         "Inspection": {
-            "ChestI": "Chest I",
-            "AbdomenI": "Abdomen I",
-            "ExtremetiesI": "Extremeties I",
-            "HEENTI": "HEENT I",
-            "GenitourinaryI": "Genitourinary I"
+            "ChestI": "胸部視診",
+            "AbdomenI": "腹部視診",
+            "ExtremetiesI": "四肢視診",
+            "HEENTI": "頭頸視診",
+            "GenitourinaryI": "泌尿生殖視診"
         },
         "Auscultation": {
-            "ChestA": "Chest A",
-            "AbdomenA": "Abdomen A"
+            "ChestA": "胸部聽診",
+            "AbdomenA": "腹部聽診"
         },
         "Percussion": {
-            "ChestPe": "Chest Pe",
-            "AbdomenPe": "Abdomen Pe"
+            "ChestPe": "胸部扣診",
+            "AbdomenPe": "腹部扣診"
         },
         "Palpation": {
-            "ChestPa": "Chest Pa",
-            "AbdomenPa": "Abdomen Pa"
+            "ChestPa": "胸部觸診",
+            "AbdomenPa": "腹部觸診"
         },
         "Radiology": {
-            "ChestCT": "Chest Xray and CT",
+            "ChestCT": "胸部X光與電腦斷層",
             "AbdSono": "腹部超音波",
             "ThySono": "甲狀腺超音波",
-            "HeadCT": "CT Scan of head"
+            "HeadCT": "頭部電腦斷層"
         },
         "Blood": {
-            "RBC": "紅血球 10^6/μL",
-            "WBC": "白血球 M/mm3",
-            "Platelet": "血小板 10^3/mm3",
-            "Na": "Na mmol/L",
-            "K": "K mmol/L",
-            "Cl": "Cl mEq/L",
-            "Mg": "Mg",
-            "Ca": "Ca",
-            "Osmolality": "Plasma Osmolality",
-            "BUN": "BUN mg/dL",
-            "Creatinine": "Creatinine mg/dL",
-            "EGFR": "eGFR ml/min/1.73 m^2",
-            "TSH": "TSH ulU/mL",
-            "T3": "T3 ng/dL",
+            "RBC": "紅血球",
+            "WBC": "白血球",
+            "Platelet": "血小板",
+            "Na": "血鈉",
+            "K": "血鉀",
+            "Cl": "血氯",
+            "Mg": "血鎂",
+            "Ca": "血鈣",
+            "Osmolarity": "血漿滲透壓",
+            "BUN": "血液尿素氮 (BUN)",
+            "Creatinine": "血液肌酸酐 (Creatinine)",
+            "EGFR": "eGFR",
+            "TSH": "TSH",
+            "T3": "T3",
             "T4": "T4",
-            "ACTH": "ACTH pg/mL",
-            "GOT": "GOT U/L",
-            "GPT": "GPT U/L",
-            "Protein": "血蛋白 mg/d",
+            "ACTH": "ACTH",
+            "GOT": "GOT",
+            "GPT": "GPT",
+            "Protein": "血蛋白",
             "Sugar": "血糖",
             "TBIL": "總膽紅素",
             "HBA1C": "糖化血色素"
@@ -104,24 +103,25 @@
             "Density": "比重",
             "Color": "顏色",
             "PH": "pH",
-            "Glucose": "尿糖 mg/d",
-            "Protein": "尿蛋白 mg/d",
+            "Glucose": "尿糖",
+            "Protein": "尿蛋白",
             "OB": "尿潛血",
-            "RBC": "紅血球 10^6/μL",
-            "WBC": "白血球 M/mm3",
-            "Na": "Na mmol/L",
-            "K": "K mmol/L",
-            "Creatinine": "Creatinine mg/dL",
-            "Osmolality": "Urine Osmolality",
-            "Gravity": "Urine Specific Gravity"
+            "RBC": "紅血球",
+            "WBC": "白血球",
+            "Na": "尿鈉",
+            "K": "尿鉀",
+            "Creatinine": "尿液肌酸酐 (Creatinine)",
+            "Osmolarity": "尿液滲透壓",
+            "Gravity": "尿液比重",
+            "Clarity": "Clarity/tubidity"
         },
         "ABG": {
             "PH": "pH",
-            "PCO2": "CO2 Partial Pressure",
-            "PO2": "Oxygen Partial Pressure",
-            "SO2": "Oxygen Saturation",
-            "HCO3": "Bicarbonate",
-            "BE": "Base Excess"
+            "PCO2": "二氧化碳分壓 (PCO2)",
+            "PO2": "氧分壓 (PO2)",
+            "SO2": "血氧飽和度 (SO2)",
+            "HCO3": "血液重碳酸鹽 (HCO3)",
+            "BE": "鹼超量 (Base excess)"
         },
         "Questions": {
             "Q1": "Q1",
@@ -204,8 +204,7 @@
             "Blood": "血液檢查",
             "Urine": "尿液檢查",
             "Radiology": "放射檢查",
-            "ABG": "動脈氣體分析",
-            "": ""
+            "ABG": "動脈氣體分析"
         },
         "PE": {
             "Inquiry": "問診",
@@ -277,7 +276,7 @@
         "Urine": {
             "Density": "1.01",
             "Color": "Yellow",
-            "Clarity/turbidity": "Clear",
+            "Clarity": "Clear",
             "PH": "5",
             "Glucose": "100 mg/d",
             "Protein": "100 mg/d",
