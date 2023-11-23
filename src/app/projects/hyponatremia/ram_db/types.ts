@@ -1,6 +1,6 @@
 type SheetJson = {
     [column: string]: {
-        [key: string]: string | number | null
+        [key: string]: string
     }
 }
 

@@ -24,7 +24,7 @@ const hyponatremia = () => {
           (db === null)?(
             <>Loading data...</>
           ):(
-            Object.keys(db).map((sheetName) => (
+            Object.keys(db).map((sheetName) => (sheetName === "Template" || sheetName === "DBPROPS")?(<></>):(
               <Link key={sheetName} href={"/projects/hyponatremia/" + sheetName}>
                 <StyledTitle>
                   {sheetName}
