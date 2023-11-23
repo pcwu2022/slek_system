@@ -1,18 +1,4 @@
 import {
-    State,
-    Main,
-    Diagnosis,
-    Therapy,
-    MedHistory,
-    PE,
-    Examination,
-    Blood,
-    Urine,
-    Radiology,
-    ABG
-} from "./enums";
-
-import {
     DBJson
 } from "./types";
 
@@ -43,25 +29,37 @@ const loadInternal = () => {
     
     let writeDb: DBJson = {};
 
-    for ( let sheetName of sheetNames ){
-        if (sheetName === "Template"){
-            continue;
+    // properties
+    const date = new Date();
+    let version = 0;
+    if (json.hasOwnProperty("DBPROPS")){
+        version = json.DBPROPS.props.version + 1;
+    }
+
+    writeDb.DBPROPS = {
+        props: {
+            version: version,
+            dateModified: date.toString()
         }
+    }
+
+    // data
+    for ( let sheetName of sheetNames ){
         // extract one sheet at a time and translate to js document type
         let sheet: XLSX.WorkSheet = workbook.Sheets[sheetName];
-        let json: Array<Array<string>> = XLSX.utils.sheet_to_json(sheet, { header:1 });
-        json = transpose(json);
+        let jsonConverted: Array<Array<string>> = XLSX.utils.sheet_to_json(sheet, { header:1 });
+        jsonConverted = transpose(jsonConverted);
 
         // group two columns to form a dictionary
         let sheetDic: { [key: string]: { [key: string]: string } } = {};
-        for (let i = 0; i < json.length; i += 2){
+        for (let i = 0; i < jsonConverted.length; i += 2){
             let dic: { [key: string]: string } = {};
-            let keys = json[i];
-            let values = json[i+1];
+            let keys = jsonConverted[i];
+            let values = jsonConverted[i+1];
             if (values === undefined) break;
             for (let j = 1; j < keys.length; j++){
                 if (keys[j] === undefined) break;
-                dic[keys[j]] = (values[j] === undefined || values[j] === "Nil")?"-":values[j];
+                dic[keys[j]] = (values[j] === undefined || values[j] === null || values[j] === "Nil")?"-":values[j];
                 if (Object.keys(enums.Units).indexOf(keys[j]) !== -1){
                     dic[keys[j]] += " " + enums.Units[keys[j] as keyof typeof enums.Units];
                 }
@@ -70,6 +68,11 @@ const loadInternal = () => {
         }
 
         writeDb[sheetName.replaceAll(" ", "")] = sheetDic;
+    }
+
+    if (!writeDb.hasOwnProperty("Template")){
+        console.error("Parsing XLSX Failed: No 'Template' Sheet Exist.");
+        return json;
     }
 
     return writeDb;

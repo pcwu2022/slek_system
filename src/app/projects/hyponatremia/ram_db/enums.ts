@@ -1,6 +1,5 @@
 /* This file provides the variable-to-name conversion inside the whole website */
 
-// Control Flow of the Program
 enum State {
     Entry = "病人入院",
     CC = "主訴",
@@ -19,6 +18,36 @@ enum State {
     Fail = "治療失敗"
 };
 
+enum Units {
+    Na = "mmol/L",
+    K = "mmol/L",
+    Creatinine = "mg/dL",
+    Osmolarity = "mOsm/kgH2O",
+    BUN = "mg/dL",
+    EGFR = "ml/min/1.73 m^2",
+    TSH = "ulU/mL",
+    FREET4 = "ng/dL",
+    ACTH = "pg/mL",
+    UricAcid = "mg/dL",
+    Weight = "kg",
+    Pressure = "mmHg/mmHg"
+};
+
+enum Reserved {
+
+};
+
+export {
+    State,
+    Units,
+    Reserved
+};
+
+/* Deprecated
+
+// Control Flow of the Program
+
+
 // Inital Variables Throughout the Program
 enum Main {
     CC = "主訴",
@@ -36,21 +65,6 @@ enum Main {
     Blood = "血液檢查",
     ABG = "動脈氣體分析",
     Weight = "體重"
-};
-
-enum Units {
-    Na = "mmol/L",
-    K = "mmol/L",
-    Creatinine = "mg/dL",
-    Osmolarity = "mOsm/kgH2O",
-    BUN = "mg/dL",
-    EGFR = "ml/min/1.73 m^2",
-    TSH = "ulU/mL",
-    FREET4 = "ng/dL",
-    ACTH = "pg/mL",
-    UricAcid = "mg/dL",
-    Weight = "kg",
-    Pressure = "mmHg/mmHg"
 };
 
 // Variables for Dignosis Choices
@@ -193,3 +207,5 @@ export {
     Dosage,
     Time
 };
+
+*/

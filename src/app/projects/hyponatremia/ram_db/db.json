@@ -1,4 +1,166 @@
 {
+    "DBPROPS": {
+        "props": {
+            "version": 1,
+            "dateModified": "Thu Nov 23 2023 14:47:09 GMT+0800 (Taipei Standard Time)"
+        }
+    },
+    "Template": {
+        "Main": {
+            "Age": "數字年齡",
+            "Gender": "性別",
+            "CC": "病人主訴",
+            "GCS": "GCS",
+            "Respiration": "呼吸",
+            "Temperature": "體溫",
+            "Heartbeat": "心跳",
+            "Pressure": "血壓 mmHg/mmHg",
+            "IndexH": "指數正常上限",
+            "IndexL": "指數正常下限",
+            "Answer": "請選擇",
+            "Detailed": "詳解",
+            "Image": "請選擇",
+            "Weight": "60 kg"
+        },
+        "MedHistory": {
+            "PMH": "既往病史",
+            "Family": "家族病史",
+            "Travel": "旅遊史",
+            "Allergy": "過敏史",
+            "Medications": "藥物史",
+            "Location": "Location",
+            "Quality": "Quality",
+            "Quantity": "Quantity",
+            "Onset mode": "Onset mode",
+            "PrecipitatingFactors": "Precipitating Factors",
+            "ExaggeratingFactors": "Exaggerating Factors",
+            "RelievingFactors": "Relieving Factors",
+            "AccompanyingSymptoms": "Accompanying Symptoms"
+        },
+        "PE": {
+            "Inquiry": "問診",
+            "Inspection": "視診",
+            "Auscultation": "聽診",
+            "Percussion": "扣診",
+            "Palpation": "觸診"
+        },
+        "Inspection": {
+            "ChestI": "Chest I",
+            "AbdomenI": "Abdomen I",
+            "ExtremetiesI": "Extremeties I",
+            "HEENTI": "HEENT I",
+            "GenitourinaryI": "Genitourinary I"
+        },
+        "Auscultation": {
+            "ChestA": "Chest A",
+            "AbdomenA": "Abdomen A"
+        },
+        "Percussion": {
+            "ChestPe": "Chest Pe",
+            "AbdomenPe": "Abdomen Pe"
+        },
+        "Palpation": {
+            "ChestPa": "Chest Pa",
+            "AbdomenPa": "Abdomen Pa"
+        },
+        "Radiology": {
+            "ChestCT": "Chest Xray and CT",
+            "AbdSono": "腹部超音波",
+            "ThySono": "甲狀腺超音波",
+            "HeadCT": "CT Scan of head"
+        },
+        "Blood": {
+            "RBC": "紅血球",
+            "WBC": "白血球",
+            "Platelet": "血小板",
+            "Na": "Na mmol/L",
+            "K": "K mmol/L",
+            "Cl": "Cl",
+            "Mg": "Mg",
+            "Ca": "Ca",
+            "Osmolality": "Plasma Osmolality",
+            "BUN": "BUN mg/dL",
+            "Creatinine": "Creatinine mg/dL",
+            "EGFR": "eGFR ml/min/1.73 m^2",
+            "TSH": "TSH ulU/mL",
+            "T3": "T3",
+            "T4": "T4",
+            "ACTH": "ACTH pg/mL",
+            "GOT": "GOT",
+            "GPT": "GPT",
+            "Protein": "血蛋白",
+            "Sugar": "血糖",
+            "TBIL": "總膽紅素",
+            "HBA1C": "糖化血色素"
+        },
+        "Urine": {
+            "Density": "比重",
+            "Color": "顏色",
+            "PH": "pH",
+            "Glucose": "尿糖",
+            "Protein": "尿蛋白",
+            "OB": "尿潛血",
+            "RBC": "紅血球",
+            "WBC": "白血球",
+            "Na": "Na mmol/L",
+            "K": "K mmol/L",
+            "Creatinine": "Creatinine mg/dL",
+            "Osmolality": "Urine Osmolality",
+            "Gravity": "Urine Specific Gravity"
+        },
+        "ABG": {
+            "PH": "pH",
+            "PCO2": "CO2 Partial Pressure",
+            "PO2": "Oxygen Partial Pressure",
+            "SO2": "Oxygen Saturation",
+            "HCO3": "Bicarbonate",
+            "BE": "Base Excess"
+        },
+        "Questions": {
+            "Q1": "Q1",
+            "Q2": "Q2",
+            "Q3": "Q3",
+            "Q4": "Q4",
+            "Q5": "Q5",
+            "Q6": "Q6",
+            "Q7": "Q7",
+            "Q8": "Q8",
+            "Q9": "Q9",
+            "Q10": "Q10",
+            "Q11": "Q11",
+            "Q12": "Q12",
+            "Q13": "Q13",
+            "Q14": "Q14",
+            "Q15": "Q15",
+            "Q16": "Q16",
+            "Q17": "Q17",
+            "Q18": "Q18",
+            "Q19": "Q19",
+            "Q20": "Q20"
+        },
+        "Answers": {
+            "A1": "A1",
+            "A2": "A2",
+            "A3": "A3",
+            "A4": "A4",
+            "A5": "A5",
+            "A6": "A6",
+            "A7": "A7",
+            "A8": "A8",
+            "A9": "A9",
+            "A10": "A10",
+            "A11": "A11",
+            "A12": "A12",
+            "A13": "A13",
+            "A14": "A14",
+            "A15": "A15",
+            "A16": "A16",
+            "A17": "A17",
+            "A18": "A18",
+            "A19": "A19",
+            "A20": "A20"
+        }
+    },
     "Case1": {
         "Main": {
             "Age": 62,
@@ -26,13 +188,17 @@
             "Quality": "-",
             "Quantity": "-",
             "Onset mode": "-",
-            "Precipitating factors": "-",
-            "Exaggerating factors": "-",
-            "Relieving factors": "-",
-            "Accompanying symptoms": "-"
+            "PrecipitatingFactors": "-",
+            "ExaggeratingFactors": "-",
+            "RelievingFactors": "-",
+            "AccompanyingSymptoms": "-"
         },
         "PE": {
-            "Inquiry": "問診"
+            "Inquiry": "問診",
+            "Inspection": "視診",
+            "Auscultation": "聽診",
+            "Percussion": "扣診",
+            "Palpation": "觸診"
         },
         "Questions": {
             "Q1": "今天哪裡不舒服？",
@@ -40,18 +206,7 @@
             "Q3": "怎麼個不舒服法？",
             "Q4": "有怎麼樣會緩解嗎？",
             "Q5": "有怎麼樣會加劇嗎？",
-            "Q6": "還有其他症狀嗎？",
-            "Chest I": "No significant findings",
-            "Abdomen I": "No significant findings",
-            "Extremeties I": "No significant findings",
-            "HEENT I": "No significant findings",
-            "Genitourinary I": "No significant findings",
-            "Chest A": "No significant findings",
-            "Abdomen A": "No significant findings",
-            "Chest Pe": "No significant findings",
-            "Abdomen Pe": "No significant findings",
-            "Chest Pa": "No significant findings",
-            "Abdomen Pa": "No significant findings"
+            "Q6": "還有其他症狀嗎？"
         },
         "Answers": {
             "Q1": "疲倦、下背痛",
@@ -60,6 +215,25 @@
             "Q4": "背痛的部分不要動就還好；累累的部分就一直累累的",
             "Q5": "背痛的部分一動就會痛，幅度越大越痛；累累的部分就一直累累的",
             "Q6": "沒有"
+        },
+        "Inspection": {
+            "ChestI": "No significant findings",
+            "AbdomenI": "No significant findings",
+            "ExtremetiesI": "No significant findings",
+            "HEENTI": "No significant findings",
+            "GenitourinaryI": "No significant findings"
+        },
+        "Auscultation": {
+            "ChestA": "No significant findings",
+            "AbdomenA": "No significant findings"
+        },
+        "Percussion": {
+            "ChestPe": "No significant findings",
+            "AbdomenPe": "No significant findings"
+        },
+        "Palpation": {
+            "ChestPa": "No significant findings",
+            "AbdomenPa": "No significant findings"
         },
         "Radiology": {
             "ChestCT": "Chest Xray and CT",
