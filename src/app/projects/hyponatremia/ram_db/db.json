@@ -1,8 +1,8 @@
 {
     "DBPROPS": {
         "props": {
-            "version": "14",
-            "dateModified": "Thu Nov 23 2023 16:26:52 GMT+0800 (Taipei Standard Time)"
+            "version": "15",
+            "dateModified": "Thu Nov 23 2023 18:58:17 GMT+0800 (Taipei Standard Time)"
         }
     },
     "Template": {
@@ -123,7 +123,7 @@
             "HCO3": "血液重碳酸鹽 (HCO3)",
             "BE": "鹼超量 (Base excess)"
         },
-        "Questions": {
+        "Inquiry": {
             "Q1": "Q1",
             "Q2": "Q2",
             "Q3": "Q3",
@@ -213,7 +213,7 @@
             "Percussion": "扣診",
             "Palpation": "觸診"
         },
-        "Questions": {
+        "Inquiry": {
             "Q1": "今天哪裡不舒服？",
             "Q2": "多久了？",
             "Q3": "怎麼個不舒服法？",

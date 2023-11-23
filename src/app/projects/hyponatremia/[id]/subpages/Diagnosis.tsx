@@ -64,15 +64,19 @@ const Diagnosis = (props: {
   data: SheetJson,
   diagnosisHistory: Array<Array<string>>,
   setDiagnosisHistory: React.Dispatch<React.SetStateAction<Array<Array<string>>>>,
-  dayCounter: number
+  dayCounter: number,
+  final: boolean
 }) => {
 
   const [diagnosisArray, setDiagnosisArray] = useState<Array<string>>(
     Object.keys(enums.Diagnosis)
   );
 
+  let dayCounter:number = props.dayCounter;
+
   // on start
   useEffect(() => {
+    dayCounter = props.dayCounter;
     if (props.diagnosisHistory.length <= props.dayCounter){
       props.setDiagnosisHistory([...props.diagnosisHistory, []]);
     }
@@ -87,7 +91,7 @@ const Diagnosis = (props: {
             "初步診斷"
           ):(props.dayCounter === 1)?( // second day
             "二度診斷"
-          ):(props.dayCounter === -1)?( // final diagnosis
+          ):(props.final)?( // final diagnosis
             "最終診斷"
           ):(
             `診斷：入院第${props.dayCounter}天`
@@ -121,7 +125,7 @@ const Diagnosis = (props: {
 
                       // insert into diagnosisHistory
                       let tempDH = [...props.diagnosisHistory];
-                      tempDH[props.dayCounter].push(key);
+                      tempDH[dayCounter].push(key);
                       props.setDiagnosisHistory(tempDH);
                     }}
                     onUp={() => {}}
@@ -139,14 +143,14 @@ const Diagnosis = (props: {
             <div className='font-semibold'>患者可能患有疾病排序</div>
             <div>
               {
-                props.diagnosisHistory[props.dayCounter]?.map((key) => (
+                props.diagnosisHistory[dayCounter]?.map((key) => (
                   <ChoiceBox
                     key={key}
                     selected={true}
                     onSelect={() => {
                       // remove from diagnosisHistory
                       let tempDH = [...props.diagnosisHistory];
-                      tempDH[props.dayCounter].splice(tempDH[props.dayCounter].indexOf(key), 1);
+                      tempDH[dayCounter].splice(tempDH[dayCounter].indexOf(key), 1);
                       props.setDiagnosisHistory(tempDH);
 
                       // insert into diagnosisArray
@@ -156,16 +160,16 @@ const Diagnosis = (props: {
                     }}
                     onUp={() => {
                       let tempDH = [...props.diagnosisHistory];
-                      let index: number = tempDH[props.dayCounter].indexOf(key);
-                      let spliced: string = tempDH[props.dayCounter].splice(index, 1)[0];
-                      tempDH[props.dayCounter].splice(Math.max(index-1, 0), 0, spliced);
+                      let index: number = tempDH[dayCounter].indexOf(key);
+                      let spliced: string = tempDH[dayCounter].splice(index, 1)[0];
+                      tempDH[dayCounter].splice(Math.max(index-1, 0), 0, spliced);
                       props.setDiagnosisHistory(tempDH);
                     }}
                     onDown={() => {
                       let tempDH = [...props.diagnosisHistory];
-                      let index: number = tempDH[props.dayCounter].indexOf(key);
-                      let spliced: string = tempDH[props.dayCounter].splice(index, 1)[0];
-                      tempDH[props.dayCounter].splice(Math.min(index+1, tempDH[props.dayCounter].length), 0, spliced);
+                      let index: number = tempDH[dayCounter].indexOf(key);
+                      let spliced: string = tempDH[dayCounter].splice(index, 1)[0];
+                      tempDH[dayCounter].splice(Math.min(index+1, tempDH[dayCounter].length), 0, spliced);
                       props.setDiagnosisHistory(tempDH);
                     }}
                   >

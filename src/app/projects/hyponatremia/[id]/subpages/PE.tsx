@@ -37,20 +37,29 @@ const ChatElement = (props: {
 };
 
 const PEElement = (props: { 
-  keyId: string, 
-  peData: string, 
+  keyId: keyof typeof template,
+  targetData: {[key:string]:string},
   inquiryQuestions: {[key:string]: string},
   inquiryClick: (key: string) => void
 }) => {
   return (
-    <div className='bg-neutral-100 m-4 p-4'>
+    <div className=' m-2 p-4'>
       <div className='font-semibold text-blue-700'>
         {template.PE[props.keyId as keyof typeof template.PE]}
       </div>
       {
         (props.keyId !== "Inquiry")?(
           <div>
-            {props.peData}
+            <table  className='border-2 border-solid border-black mt-2 w-full'>
+              <tbody>
+                {Object.keys(props.targetData).map((key) => (
+                  <tr>
+                    <td className='border-2 border-solid border-black p-2'>{template[props.keyId][key as keyof typeof template[typeof props.keyId]]}</td>
+                    <td className='border-2 border-solid border-black p-2'>{props.targetData[key]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         ):(
           <div>
@@ -58,7 +67,7 @@ const PEElement = (props: {
               Object.keys(props.inquiryQuestions).map((key) => (
                 <div 
                   key={key} 
-                  className='cursor-pointer hover:text-blue-700 hover:font-bold'
+                  className='bg-white m-2 rounded-md p-2 cursor-pointer hover:bg-neutral-200 hover:font-bold'
                   onClick={() => {
                     props.inquiryClick(key);
                   }}
@@ -127,11 +136,11 @@ const PE = (props: {
       </div>
 
       {/* Choice and Data */}
-      <div className='choice inline-block w-4/12 align-top h-72'>
+      <div className='choice inline-block w-5/12 align-top h-72'>
         <div className={'bg-blue-50 max-h-full overflow-auto m-2 ml-8 mr-8' + ((questions.length === 0)?"":"p-2")}>
           {
             (questions.length === 0)?(
-              <div className='bg-neutral-100 m-4 p-4'>
+              <div className=' m-4 p-4'>
                 <div className='font-semibold text-blue-700'>
                   提示
                 </div>
@@ -144,8 +153,8 @@ const PE = (props: {
               questions.map((key) => (
                 <PEElement 
                   key={key} 
-                  keyId={key} 
-                  peData={props.data.PE[key]} 
+                  keyId={key as keyof typeof template} 
+                  targetData={props.data[key]}
                   inquiryQuestions={props.data.Questions}
                   inquiryClick={(key: string) => {
                     props.setInquiryHistory([...props.inquiryHistory, key]);
@@ -158,7 +167,7 @@ const PE = (props: {
       </div>
 
       {/* Message */}
-      <div className='message inline-block w-6/12 pr-8 align-top h-72'>
+      <div className='message inline-block w-5/12 pr-8 align-top h-72'>
         <div className='container m-2 ml-8 mr-8 bg-blue-50 w-full h-full'>
           
           {/* Name */}
@@ -198,6 +207,7 @@ const PE = (props: {
           <div className='send-box bg-blue-800 h-14 p-2 pl-4 pr-4 font-semibold text-white'>
             <input 
               type="text" 
+              placeholder='請選擇左方問診問題'
               className='input-text align-middle rounded-xl text-black font-medium bg-neutral-100 m-2 pl-2 pr-2 w-5/6'
               value={inputValue}
               onChange={(e) => {
