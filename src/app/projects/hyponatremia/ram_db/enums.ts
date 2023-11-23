@@ -50,7 +50,16 @@ enum Units {
     ACTH = "pg/mL",
     UricAcid = "mg/dL",
     Weight = "kg",
-    Pressure = "mmHg/mmHg"
+    Pressure = "mmHg/mmHg",
+    RBC = "10^6/μL",
+    WBC = "M/mm3",
+    Platelet = "10^3/mm3",
+    Cl = "mEq/L",
+    T3 = "ng/dL",
+    GOT = "U/L",
+    GPT = "U/L",
+    Glucose = "mg/d",
+    Protein = "mg/d"
 };
 
 // Variables for Therapy
