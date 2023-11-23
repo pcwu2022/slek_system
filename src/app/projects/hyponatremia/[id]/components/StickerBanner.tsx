@@ -5,6 +5,7 @@ import { StyledTitle } from './StyledComponents';
 import Image from 'next/image';
 
 import * as enums from '../../ram_db/enums';
+import template from '../../ram_db/template.json';
 
 const VS = (props: {
   children: JSX.Element | string | null
@@ -79,7 +80,7 @@ const StickerBanner = (props: {
             Object.keys(props.vs).map((key) => (
               <VS key={key}>
                 <>
-                  {enums.Main[key as keyof typeof enums.Main]} &nbsp;:&nbsp; {props.vs[key]}
+                  {template.Main[key as keyof typeof template.Main]} &nbsp;:&nbsp; {props.vs[key]}
                 </>
               </VS>
             ))
