@@ -48,7 +48,7 @@ const Examination = (props: {data: SheetJson}) => {
                 }
               }}
             >
-              {template.Main[key as keyof typeof template.Main]}
+              {template.Examination[key as keyof typeof template.Examination]}
             </StyledButtonDrill>
           ))
         }
