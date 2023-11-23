@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
+import template from '../../ram_db/template.json';
 
 // components
 import { StyledTitle, StyledBox, StyledButton, StyledButtonDrill } from '../components/StyledComponents';
@@ -47,7 +48,7 @@ const Examination = (props: {data: SheetJson}) => {
                 }
               }}
             >
-              {enums.Main[key as keyof typeof enums.Main]}
+              {template.Main[key as keyof typeof template.Main]}
             </StyledButtonDrill>
           ))
         }

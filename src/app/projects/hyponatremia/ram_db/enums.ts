@@ -18,6 +18,26 @@ enum State {
     Fail = "治療失敗"
 };
 
+// Variables for Dignosis Choices
+enum Diagnosis {
+    ResetOsmostat = "Reset Osmostat",
+    PrimaryPolydipsia = "Primary Polydipsia",
+    Cirrhosis = "Cirrhosis",
+    SIADH = "SIADH",
+    Endocrine = "Endocrine",
+    Hypovolemia = "Volume Depletion",
+    Hypothyroidism = "Hypothyroidism",
+    GlucocorticoidDeficiency = "Glucocorticoid deficiency",
+    PsychogenicPolydipsia = "Psychogenic polydipsia",
+    LowSolute = "Low solute (tea and toast syndrome/beer potomania)",
+    ChronicHeartFailure = "Chronic heart failure",
+    NephroticSyndrome = "Nephrotic syndrome",
+    AdvancedRenalFailure = "Advanced renal failure",
+    Diuretics = "Diuretics",
+    Hemorrhage = "Hemorrhage",
+    GILoss = "GI loss"
+};
+
 enum Units {
     Na = "mmol/L",
     K = "mmol/L",
@@ -33,6 +53,31 @@ enum Units {
     Pressure = "mmHg/mmHg"
 };
 
+// Variables for Therapy
+enum Therapy {
+    Saline3 = "3%Saline",
+    Saline = "Normal Saline",
+    Restriction = "Fluid Restriction",
+    Diuretics = "Diuretics",
+    VRA = "Vasopressin Receptor Antagonists"
+};
+
+enum Dosage {
+    L05 = "500 ml",
+    L10 = "1000 ml",
+    L15 = "1500 ml",
+    L20 = "2000 ml",
+    L25 = "2500 ml",
+    L30 = "3000 ml"
+};
+
+enum Time {
+    Q12H = "Q12H",
+    Q8H = "Q8H",
+    Q6H = "Q6H",
+    Q4H = "Q4H"
+}
+
 enum Reserved {
 
 };
@@ -40,6 +85,10 @@ enum Reserved {
 export {
     State,
     Units,
+    Diagnosis,
+    Therapy,
+    Dosage,
+    Time,
     Reserved
 };
 
@@ -67,41 +116,11 @@ enum Main {
     Weight = "體重"
 };
 
-// Variables for Dignosis Choices
-enum Diagnosis {
-    CHF = "Chronic Heart Failure",
-    RO = "Reset Osmostat",
-    PP = "Primary Polydipsia",
-    Cirrhosis = "Cirrhosis",
-    SIADH = "SIADH",
-    Endocrine = "Endocrine",
-    Hypovolemia = "Volume Depletion"
-};
 
-// Variables for Therapy
-enum Therapy {
-    Saline3 = "3%Saline",
-    Saline = "Normal Saline",
-    Restriction = "Fluid Restriction",
-    Diuretics = "Diuretics",
-    VRA = "Vasopressin Receptor Antagonists"
-};
 
-enum Dosage {
-    L05 = "500 ml",
-    L10 = "1000 ml",
-    L15 = "1500 ml",
-    L20 = "2000 ml",
-    L25 = "2500 ml",
-    L30 = "3000 ml"
-};
 
-enum Time {
-    Q12H = "Q12H",
-    Q8H = "Q8H",
-    Q6H = "Q6H",
-    Q4H = "Q4H"
-}
+
+
 
 // Variables for History Questions
 enum MedHistory {
