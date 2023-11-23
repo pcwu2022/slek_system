@@ -16,6 +16,7 @@ const __dirname = dirname(__filename);
 
 const xlsxPath = path.join(__dirname, "./db.xlsx");
 const jsonPath = path.join(__dirname, "./db.json");
+const templatePath = path.join(__dirname, "./template.json");
 
 const transpose = (matrix: Array<Array<string>>) => {
     return matrix[0].map((col, i) => matrix.map(row => row[i]));
@@ -33,12 +34,12 @@ const loadInternal = () => {
     const date = new Date();
     let version = 0;
     if (json.hasOwnProperty("DBPROPS")){
-        version = json.DBPROPS.props.version + 1;
+        version = parseInt(json.DBPROPS.props.version) + 1;
     }
 
     writeDb.DBPROPS = {
         props: {
-            version: version,
+            version: version + "",
             dateModified: date.toString()
         }
     }
@@ -83,9 +84,24 @@ export default (mode = "production") => {
     // if production read json
     if (mode === "development"){
         const writeDb: DBJson = loadInternal();
-        fs.writeFile(jsonPath, JSON.stringify(writeDb, null, 4), () => {
+        fs.writeFile(jsonPath, JSON.stringify(writeDb, (key, value) => {
+            if (typeof value === "number"){
+                return value.toString();
+            }
+            return value;
+        }, 4), () => {
             console.log("updated db.json");
         });
+        if (writeDb.hasOwnProperty("Template")){
+            fs.writeFile(templatePath, JSON.stringify(writeDb.Template, (key, value) => {
+                if (typeof value === "number"){
+                    return value.toString();
+                }
+                return value;
+            }, 4), () => {
+                console.log("updated template.json");
+            });
+        }
         return writeDb;
     } else {
         try {
