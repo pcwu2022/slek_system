@@ -63,14 +63,18 @@ const Therapy = (props: {
   const [dosageIndex, setDosageIndex] = useState<string | null>(null);
   const [timeIndex, setTimeIndex] = useState<string | null>(null);
   const [therapyArray, setTherapyArray] = useState<Array<[string|null, string|null, string|null]>>([]);
-  
+  const TBW = (parseInt(props.data.Main.Weight)*((props.data.Main.Gender.indexOf("男")!==-1)?0.6:0.5));
+
   // on start
   useEffect(() => {
     if (props.therapyHistory.length <= props.dayCounter){
-      console.log(props.dayCounter, props.therapyHistory);
       props.setTherapyHistory([...props.therapyHistory, []]);
     } else {
       setTherapyArray(props.therapyHistory[props.dayCounter]);
+    }
+    if (props.deltaNa.length <= props.dayCounter){
+      props.setDeltaNa([...props.deltaNa, 0]);
+      console.log(props.dayCounter);
     }
   }, []);
 
@@ -175,6 +179,14 @@ const Therapy = (props: {
                       let tempTH = [...props.therapyHistory];
                       tempTH[props.dayCounter] = [...therapyArray, [buttonIndex, dosageIndex, timeIndex]];
                       props.setTherapyHistory(tempTH);
+                      // calcualte deltaNa
+                      let deltaNa = ((buttonIndex === "Saline")?0.009:0.03)*parseInt(enums.Dosage[dosageIndex as keyof typeof enums.Dosage]);
+                      deltaNa = ((timeIndex === "Q4H")?deltaNa*24/4:(timeIndex === "Q6H")?deltaNa*24/6:(timeIndex === "Q8H")?deltaNa*24/8:(timeIndex === "Q12H")?deltaNa*24/12:0);
+                      let tempDeltaNa = props.deltaNa;
+                      tempDeltaNa[props.dayCounter] += deltaNa/23/TBW;
+                      props.setDeltaNa(tempDeltaNa);
+                      
+                      // reset buttons
                       setButtonIndex(null);
                       setDosageIndex(null);
                       setTimeIndex(null);
@@ -194,6 +206,14 @@ const Therapy = (props: {
               <TherapyBox
                 key={Math.random()}
                 onRemove={() => {
+                  if (element[1] !== null && element[2] !== null){
+                    // calculate deltaNa
+                    let deltaNa = ((element[0] === "Saline")?0.009:0.03)*parseInt(enums.Dosage[element[1] as keyof typeof enums.Dosage]);
+                    deltaNa = ((element[2] === "Q4H")?deltaNa*24/4:(element[2] === "Q6H")?deltaNa*24/6:(element[2] === "Q8H")?deltaNa*24/8:(element[2] === "Q12H")?deltaNa*24/12:0);
+                    let tempDeltaNa = props.deltaNa;
+                    tempDeltaNa[props.dayCounter] -= deltaNa/23/TBW;
+                    props.setDeltaNa(tempDeltaNa);
+                  }
                   let tempTherapyArray = [...therapyArray];
                   tempTherapyArray.splice(tempTherapyArray.indexOf(element), 1);
                   setTherapyArray(tempTherapyArray);

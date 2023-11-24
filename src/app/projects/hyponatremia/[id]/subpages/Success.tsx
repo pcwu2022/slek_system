@@ -7,7 +7,7 @@ import * as enums from '../../ram_db/enums';
 const Success = (props: {data: SheetJson}) => {
   return (
     <div>
-      
+      Game Over. You Won.
     </div>
   )
 }

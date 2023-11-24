@@ -14,7 +14,8 @@ const ControlFlow = (props: {
   setPrevState: React.Dispatch<React.SetStateAction<Array<enums.State>>>,
   dayCounter: number,
   setDayCounter: React.Dispatch<React.SetStateAction<number>>,
-  data: SheetJson | null
+  data: SheetJson | null,
+  deltaNa: Array<number>
 }) => {
 
   const goBack = () => {
@@ -60,10 +61,29 @@ const ControlFlow = (props: {
         // control success or continue
         if (props.data === null){
           props.setState(enums.State.DiagnosisF)
-        } else if (false){
-          props.setState(enums.State.DiagnosisF);
         } else {
-          props.setState(enums.State.Transition);
+          
+          const currentNa = props.deltaNa[props.dayCounter];
+          const totalNa = props.deltaNa.reduce((a, b) => a+b, 0) - currentNa;
+          const TBW = (parseInt(props.data.Main.Weight)*((props.data.Main.Gender.indexOf("男")!==-1)?0.6:0.5));
+          const supposedNa = (140 - totalNa)/(1 + TBW);
+          const maxTherapyNa = supposedNa*(1 + 0.2); // +0.2 is the maximum tolerance
+          const indexH = parseInt(props.data.Main.indexH);
+          const indexL = parseInt(props.data.Main.indexL);
+
+          props.data.Blood.Na = Math.round((totalNa + currentNa)*100)/100 + "";
+
+          if (currentNa > maxTherapyNa){
+            // too much sodium: fail
+            props.setState(enums.State.Fail);
+            break;
+          }
+
+          if (currentNa > indexL && currentNa < indexH){
+            props.setState(enums.State.DiagnosisF);
+          } else {
+            props.setState(enums.State.Transition);
+          }
         }
         break;
       }
