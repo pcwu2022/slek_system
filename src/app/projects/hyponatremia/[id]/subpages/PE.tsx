@@ -53,7 +53,7 @@ const PEElement = (props: {
             <table  className='border-2 border-solid border-black mt-2 w-full'>
               <tbody>
                 {Object.keys(props.targetData).map((key) => (
-                  <tr>
+                  <tr key={key}>
                     <td className='border-2 border-solid border-black p-2'>{template[props.keyId][key as keyof typeof template[typeof props.keyId]]}</td>
                     <td className='border-2 border-solid border-black p-2'>{props.targetData[key]}</td>
                   </tr>
