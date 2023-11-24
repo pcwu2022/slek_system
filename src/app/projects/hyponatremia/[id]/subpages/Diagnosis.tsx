@@ -109,9 +109,9 @@ const Diagnosis = (props: {
       <div className='m-6'></div>
       <div className='main-container flex items-stretch w-full h-full'>
         <div className='w-1/2 align-top h-full'>
-          <div className='m-8 p-4 bg-blue-50'>
+          <div className='m-8 p-4 bg-blue-50 h-full'>
             <div className='font-semibold'>診斷選項</div>
-            <div>
+            <div className='max-h-full scroll-auto'>
               {
                 diagnosisArray.map((key) => (
                   <ChoiceBox

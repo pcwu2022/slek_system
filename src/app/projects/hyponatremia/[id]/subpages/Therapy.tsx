@@ -55,7 +55,9 @@ const Therapy = (props: {
   dayCounter: number,
   data: SheetJson,
   therapyHistory: Array<Array<[string|null, string|null, string|null]>>,
-  setTherapyHistory: React.Dispatch<React.SetStateAction<Array<Array<[string|null, string|null, string|null]>>>>
+  setTherapyHistory: React.Dispatch<React.SetStateAction<Array<Array<[string|null, string|null, string|null]>>>>,
+  deltaNa: Array<number>,
+  setDeltaNa: React.Dispatch<React.SetStateAction<Array<number>>>
 }) => {
   const [buttonIndex, setButtonIndex] = useState<string | null>(null);
   const [dosageIndex, setDosageIndex] = useState<string | null>(null);
@@ -65,6 +67,7 @@ const Therapy = (props: {
   // on start
   useEffect(() => {
     if (props.therapyHistory.length <= props.dayCounter){
+      console.log(props.dayCounter, props.therapyHistory);
       props.setTherapyHistory([...props.therapyHistory, []]);
     } else {
       setTherapyArray(props.therapyHistory[props.dayCounter]);
@@ -75,7 +78,7 @@ const Therapy = (props: {
     <div className='w-full'>
       {/* Banner */}
       <StickerBanner
-        title={(props.dayCounter === 2)?'治療':`治療：入院第 ${props.dayCounter-1} 天` }
+        title={(props.dayCounter === 1)?'治療':`治療：入院第 ${props.dayCounter} 天` }
         imageFile={props.data.Main.Image}
         vs={{
           GCS: props.data.Main.GCS,

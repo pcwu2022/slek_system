@@ -155,7 +155,7 @@ const PE = (props: {
                   key={key} 
                   keyId={key as keyof typeof template} 
                   targetData={props.data[key]}
-                  inquiryQuestions={props.data.Questions}
+                  inquiryQuestions={props.data.Inquiry}
                   inquiryClick={(key: string) => {
                     props.setInquiryHistory([...props.inquiryHistory, key]);
                   }}
@@ -181,16 +181,16 @@ const PE = (props: {
                   <>
                     <ChatElement sender={true} key={Math.random()}>
                       {
-                        (props.data.Questions[key] === undefined)?(
+                        (props.data.Inquiry[key] === undefined)?(
                           key
                         ):(
-                          props.data.Questions[key]
+                          props.data.Inquiry[key]
                         )
                       }
                     </ChatElement>
                     <ChatElement sender={false} key={Math.random()}>
                     {
-                        (props.data.Questions[key] === undefined)?(
+                        (props.data.Inquiry[key] === undefined)?(
                           lorem.generateWords(Math.floor(Math.random()*20))
                         ):(
                           props.data.Answers[key]
