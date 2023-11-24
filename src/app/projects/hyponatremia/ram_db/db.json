@@ -1,8 +1,8 @@
 {
     "DBPROPS": {
         "props": {
-            "version": "17",
-            "dateModified": "Fri Nov 24 2023 13:25:18 GMT+0800 (Taipei Standard Time)"
+            "version": "18",
+            "dateModified": "Fri Nov 24 2023 13:40:16 GMT+0800 (Taipei Standard Time)"
         }
     },
     "Template": {
@@ -97,7 +97,9 @@
             "Protein": "血蛋白",
             "Sugar": "血糖",
             "TBIL": "總膽紅素",
-            "HBA1C": "糖化血色素"
+            "HBA1C": "糖化血色素",
+            "FREET4": "FREET4",
+            "UricAcid": "尿酸"
         },
         "Urine": {
             "Density": "比重",

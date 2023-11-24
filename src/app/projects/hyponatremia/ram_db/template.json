@@ -90,7 +90,9 @@
         "Protein": "血蛋白",
         "Sugar": "血糖",
         "TBIL": "總膽紅素",
-        "HBA1C": "糖化血色素"
+        "HBA1C": "糖化血色素",
+        "FREET4": "FREET4",
+        "UricAcid": "尿酸"
     },
     "Urine": {
         "Density": "比重",

@@ -64,7 +64,7 @@ const Examination = (props: {data: SheetJson}) => {
               {
                 <CheckList 
                   elements={
-                    Object.keys(props.data[buttonIndex]).filter((key) => (key!=='-')).map((key) => (
+                    Object.keys(props.data[buttonIndex]).filter((key) => (key!=='-' && key!=='')).map((key) => (
                       template[buttonIndex][key as keyof typeof template[typeof buttonIndex]]
                     ))
                   }
