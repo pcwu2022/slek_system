@@ -10,7 +10,10 @@ import { StyledTitle, StyledBox, StyledButton, StyledButtonDrill } from '../comp
 import StickerBanner from '../components/StickerBanner';
 import CheckList from '../components/CheckList';
 
-const Examination = (props: {data: SheetJson}) => {
+const Examination = (props: {
+  data: SheetJson,
+  dayCounter: number
+}) => {
   const [buttonIndex, setButtonIndex] = useState<keyof typeof template | null>(null);
   const [checked, setChecked] = useState<Array<boolean> | null>(null);
 
@@ -19,7 +22,7 @@ const Examination = (props: {data: SheetJson}) => {
     <div className='w-full'>
       {/* Banner */}
       <StickerBanner 
-        title='檢查/檢驗' 
+        title={(props.dayCounter === 1)?'檢查 / 檢驗':`檢查 / 檢驗：入院第 ${props.dayCounter} 天` } 
         imageFile={props.data.Main.Image}
         vs={{
           GCS: props.data.Main.GCS,
