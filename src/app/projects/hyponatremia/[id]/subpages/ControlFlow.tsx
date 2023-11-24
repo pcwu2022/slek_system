@@ -21,8 +21,8 @@ const ControlFlow = (props: {
     // day counter
     if (
       props.prevState[props.prevState.length-1] === enums.State.Diagnosis1 ||
-      props.prevState[props.prevState.length-1] === enums.State.Diagnosis2 ||
-      props.prevState[props.prevState.length-1] === enums.State.DiagnosisN ||
+      props.prevState[props.prevState.length-1] === enums.State.Therapy ||
+      props.prevState[props.prevState.length-1] === enums.State.TherapyN ||
       props.prevState[props.prevState.length-1] === enums.State.DiagnosisF
     ){
       props.setDayCounter(props.dayCounter - 1);
@@ -39,8 +39,8 @@ const ControlFlow = (props: {
     // day counter
     if (
       props.state === enums.State.Diagnosis1 ||
-      props.state === enums.State.Diagnosis2 ||
-      props.state === enums.State.DiagnosisN ||
+      props.state === enums.State.Therapy ||
+      props.state === enums.State.TherapyN ||
       props.state === enums.State.DiagnosisF
     ){
       props.setDayCounter(props.dayCounter + 1);
