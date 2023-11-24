@@ -77,6 +77,7 @@ const ClientPage = ( props: { db: DBJson } ) => {
         dayCounter={dayCounter}
         setDayCounter={setDayCounter}
         data={sheet}
+        deltaNa={deltaNa}
       />
     </div>
   )

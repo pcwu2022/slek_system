@@ -92,7 +92,7 @@ const Diagnosis = (props: {
           ):(props.dayCounter === 1)?( // second day
             "二度診斷"
           ):(props.final)?( // final diagnosis
-            "最終診斷"
+            "病人成功康復！請進行最終診斷"
           ):(
             `診斷：入院第 ${props.dayCounter} 天`
           )
