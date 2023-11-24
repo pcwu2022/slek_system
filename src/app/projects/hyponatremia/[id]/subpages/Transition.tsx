@@ -101,7 +101,7 @@ const Transition = (props: {
             opacity: buttonOpacity + ""
           }}
           onClick={() => {
-            props.setState(enums.State.DiagnosisN);
+            props.setState(enums.State.Examination);
           }}
         >
           入院第&nbsp;{props.dayCounter}&nbsp;天

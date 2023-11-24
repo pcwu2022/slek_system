@@ -75,7 +75,7 @@ const Therapy = (props: {
     <div className='w-full'>
       {/* Banner */}
       <StickerBanner
-        title='治療' 
+        title={(props.dayCounter === 2)?'治療':`治療：入院第 ${props.dayCounter-1} 天` }
         imageFile={props.data.Main.Image}
         vs={{
           GCS: props.data.Main.GCS,

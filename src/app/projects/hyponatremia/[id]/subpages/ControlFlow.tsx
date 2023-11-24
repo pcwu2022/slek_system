@@ -60,28 +60,29 @@ const ControlFlow = (props: {
         // control success or continue
         if (props.data === null){
           props.setState(enums.State.DiagnosisF)
-        } else if (props.data.Blood.Na < props.data.Main.IndexL || props.data.Blood.Na < props.data.Main.IndexH){
+        } else if (false){
           props.setState(enums.State.DiagnosisF);
         } else {
           props.setState(enums.State.Transition);
         }
         break;
       }
-      case enums.State.Transition: props.setState(enums.State.DiagnosisN); break;
       case enums.State.DiagnosisF: props.setState(enums.State.Success); break;
-      case enums.State.DiagnosisN: props.setState(enums.State.TherapyN); break;
+      case enums.State.Transition: props.setState(enums.State.ExaminationN); break;
+      case enums.State.ExaminationN: props.setState(enums.State.DiagnosisN); break;
+      case enums.State.DiagnosisN: props.setState(enums.State.ExaminationN); break;
       case enums.State.TherapyN: {
         // control failure or continue
         if (props.dayCounter <= dayThreshold){
           props.setState(enums.State.ExaminationN)
+        } else if (false){
+          props.setState(enums.State.DiagnosisF);
         } else {
-          props.setState(enums.State.Fail)
+          props.setState(enums.State.Transition);
         }
         break;
       }
-      case enums.State.ExaminationN: props.setState(enums.State.DiagnosisN); break;
       default: {
-        console.log("Default");
         props.setState(enums.State.Entry);
         break;
       }

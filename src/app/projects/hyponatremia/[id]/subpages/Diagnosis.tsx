@@ -94,7 +94,7 @@ const Diagnosis = (props: {
           ):(props.final)?( // final diagnosis
             "最終診斷"
           ):(
-            `診斷：入院第${props.dayCounter}天`
+            `診斷：入院第 ${props.dayCounter} 天`
           )
         }
         imageFile={props.data.Main.Image}
