@@ -79,6 +79,12 @@ const ControlFlow = (props: {
             break;
           }
 
+          if (props.dayCounter > dayThreshold){
+            // too long in hospital: fail
+            props.setState(enums.State.Fail);
+            break;
+          }
+
           if (currentNa > indexL && currentNa < indexH){
             props.setState(enums.State.DiagnosisF);
           } else {
@@ -90,20 +96,20 @@ const ControlFlow = (props: {
       case enums.State.DiagnosisF: props.setState(enums.State.Success); break;
       case enums.State.Transition: props.setState(enums.State.ExaminationN); break;
       case enums.State.ExaminationN: props.setState(enums.State.DiagnosisN); break;
-      case enums.State.DiagnosisN: props.setState(enums.State.ExaminationN); break;
-      case enums.State.TherapyN: {
-        // control failure or continue
-        if (props.dayCounter <= dayThreshold){
-          props.setState(enums.State.ExaminationN)
-        } else if (false){
-          props.setState(enums.State.DiagnosisF);
-        } else {
-          props.setState(enums.State.Transition);
-        }
-        break;
-      }
+      case enums.State.DiagnosisN: props.setState(enums.State.Therapy); break;
+      // case enums.State.TherapyN: {
+      //   // control failure or continue
+      //   if (props.dayCounter <= dayThreshold){
+      //     props.setState(enums.State.ExaminationN)
+      //   } else if (false){
+      //     props.setState(enums.State.DiagnosisF);
+      //   } else {
+      //     props.setState(enums.State.Transition);
+      //   }
+      //   break;
+      // }
       default: {
-        props.setState(enums.State.Entry);
+        props.setState(enums.State.Transition);
         break;
       }
     }
