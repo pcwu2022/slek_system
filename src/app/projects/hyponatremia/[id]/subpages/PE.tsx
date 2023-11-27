@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactComponentElement, useState} from 'react';
+import React, { ReactComponentElement, useState, useRef, useEffect} from 'react';
 import { SheetJson } from '../../ram_db/types';
 import * as enums from '../../ram_db/enums';
 import Image from 'next/image';
@@ -91,6 +91,7 @@ const PE = (props: {
   // states
   const [questions, setQuestions] = useState<Array<string>>([]);
   const [inputValue, setInputValue] = useState<string>("");
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // actions
   const buttonActive = (key: string) => {
@@ -104,6 +105,14 @@ const PE = (props: {
       setQuestions(tempQuestions);
     }
   }
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end"});
+    console.log(messagesEndRef);
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  });
 
   return (
     <div className='w-full'>
@@ -200,6 +209,7 @@ const PE = (props: {
                   </>
                 ))
               }
+              <div ref={messagesEndRef}></div>
             </div>
           </div>
           
